@@ -1,0 +1,29 @@
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.exe
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.pdb
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.csproj.GenerateResource.Cache
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.exe
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.pdb
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\SNA.WinForm.PickToLightClient.ErrorDialog.resources
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\SNA.WinForm.PickToLightClient.Login.resources
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\SNA.WinForm.PickToLightClient.Main.resources
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\SNA.WinForm.PickToLightClient.Properties.Resources.resources
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.exe.manifest
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.application
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.exe.manifest
+C:\Development\WinForm\SNA.WinForm.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.application
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\bin\Debug\PickToLightClient.exe.manifest
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\bin\Debug\PickToLightClient.application
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\bin\Debug\PickToLightClient.exe
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\bin\Debug\PickToLightClient.pdb
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.csprojAssemblyReference.cache
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\SNA.WinForm.PickToLightClient.ErrorDialog.resources
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\SNA.WinForm.PickToLightClient.Login.resources
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\SNA.WinForm.PickToLightClient.Main.resources
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\SNA.WinForm.PickToLightClient.Properties.Resources.resources
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.csproj.GenerateResource.cache
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.csproj.CoreCompileInputs.cache
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.exe.manifest
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.application
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.exe
+C:\DevTFS\SNA Development Projects\PickToLight\PickToLightClient\WinForm\obj\Debug\PickToLightClient.pdb

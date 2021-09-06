@@ -1,0 +1,1655 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HSM.Embedded.Decoding.DecodeAssembly</name>
+    </assembly>
+    <members>
+        <member name="T:HSM.Embedded.Decoding.DecodeException">
+            <summary>
+            The DecodeException class exposed decode specific exceptions.  
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeException.ResultCode">
+            <summary>
+            Returns the embedded Result code contained within the exception.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly">
+            <summary>
+            The DecodeAssembly is the entry point for the DecodeAssembly.  This class exposes all decode functionality.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.Dispose">
+            <summary>
+            Releases all of the DecodeAssemblies resources.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.Finalize">
+            <summary>
+            Finalizer
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.Dispose(System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="Disposing"></param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.OnDecodeEvent(HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs)">
+            <summary>
+            Event method used to raise the Decode event by invoking the delegate
+            </summary>
+            <param name="e">DecodeEventArgs class</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.OnMultiDecodeEvent(HSM.Embedded.Decoding.DecodeAssembly.MultiDecodeEventArgs)">
+            <summary>
+            Event method used to raise the MultiDecode event by invoking the delegate
+            </summary>
+            <param name="e">DecodeEventArgs class</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.Connect">
+            <summary>
+            Connect to the Decoder engine
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.Disconnect">
+            <summary>
+            Disconnect from the Decoder engine
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.CancelScanBarcode">
+            <summary>
+            Cancels the current asynchronous decode operation.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.CancelMultiDecode">
+            <summary>
+            Cancels the current ScanMultipleBarcodes operation.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.ScanBarcode">
+            <summary>
+            Initiate an Asynchronous Decode Operation.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.ScanMultipleBarcodes(System.Int32,System.Int32)">
+            <summary>
+            Initiate a Multiple Decode Operation.
+            </summary>
+            <param name="scanTimeout">The maximum time to perform the operation.</param>
+            <param name="vKey">The key used to call the ScanMultipleBarcodes procedure.</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.SetDecoderProperty(System.Enum,System.Int32)">
+            <summary>
+            Sets a decoder property to the specified value
+            </summary>
+            <param name="Property">One of the decoder properties</param>
+            <param name="Value">Value to set the property to</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.SetDecoderProperty(System.Enum,System.Enum)">
+            <summary>
+            Sets a decoder property to the specified enum value
+            </summary>
+            <param name="Property">One of the decoder properties</param>
+            <param name="Value">One of the DecodeAssembly property enum values</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.SetDecoderProperty(System.Enum,System.Byte[])">
+            <summary>
+            Sets a decoder byte string property, i.e. OCR user template
+            </summary>
+            <param name="Property">Decoder property to set</param>
+            <param name="Value">Byte string value</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.GetDecoderProperty(System.Enum)">
+            <summary>
+            Gets a decoder property value
+            </summary>
+            <param name="Property">One of the decoder library properties</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.GetDecoderStringProperty(System.Enum)">
+            <summary>
+            Gets a decoder string property, i.e. a revision property
+            </summary>
+            <param name="Property">One of the decoder library properties</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.SetDefaults">
+            <summary>
+            Sets all of the decoder settings to their default value.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.OnIqImageEvent(HSM.Embedded.Decoding.DecodeAssembly.IqImageEventArgs)">
+             <summary>
+            
+             </summary>
+             <param name="e"></param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.CancelCaptureIqImage">
+            <summary>
+            Cancels the current asynchronous IQ Image operation.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.CaptureIqImage(HSM.Embedded.Decoding.DecodeAssembly.IqImageTypes)">
+            <summary>
+            Starts an asynchronous IQ Image Operation.
+            </summary>
+            <param name="IqImageType">The type of capture to execute.</param>
+        </member>
+        <member name="M:HSM.Embedded.Decoding.DecodeAssembly.SaveLastImage(HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats)">
+            <summary>
+            Saves the last decode image to an image file.
+            </summary>
+            <param name="ImageFileFormat">The format to save the image.</param>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.ScanTimeout">
+            <summary>
+            Get/Set The maximum time in msec allowed for a decode attempt.
+            </summary>
+        </member>
+        <member name="E:HSM.Embedded.Decoding.DecodeAssembly.DecodeEvent">
+            <summary>
+            Public instance of the Decode Event.
+            </summary>
+        </member>
+        <member name="E:HSM.Embedded.Decoding.DecodeAssembly.MultiDecodeEvent">
+            <summary>
+            Public instance of the DecMultiDecodeode Event.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.IqImageRawData">
+            <summary>
+            Returns The Raw IQ Image Data
+            </summary>
+        </member>
+        <member name="E:HSM.Embedded.Decoding.DecodeAssembly.IqImageEvent">
+            <summary>
+            Public instance of the IQ Image Event.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates">
+            <summary>
+            OCR Template Types for decSetOCRTemplates
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates.UserTemplate">
+            <summary>
+            User defined template. Enabled by default
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates.PassportTemplate">
+            <summary>
+            Internal passport template
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates.ISBNTemplate">
+            <summary>
+            Internal ISBN template
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates.PriceFieldTemplate">
+            <summary>
+            Internal price field template
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRTemplates.MicrE13BTemplate">
+            <summary>
+            Internal MicrE-13 B template
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.OCREnableModes">
+            <summary>
+            OCR Enable Modes for decSetOCRUserTemplate
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCREnableModes.Off">
+            <summary>
+            OCR is disabled
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCREnableModes.NormalVideo">
+            <summary>
+            OCR to normal video mode
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCREnableModes.InverseVideo">
+            <summary>
+            OCR to inverse video mode
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCREnableModes.Both">
+            <summary>
+            OCR to both video modes
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting">
+            <summary>
+             Decoder properties associated with the centering window funcitonality
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting.WindowUpperLeft_X">
+            <summary>
+            Centering window upper left X value
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting.WindowUpperLeft_Y">
+            <summary>
+            Centering window upper left Y value
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting.WindowLowerRight_X">
+            <summary>
+            Centering window lower right X value
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting.WindowLowerRight_Y">
+            <summary>
+            Centering window lower right Y value
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.WindowSetting.CenteringEnabled">
+            <summary>
+            Enable
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.OCRSetting">
+            <summary>
+             The OCRSetting properties are used to set and retrieve decoder properties associated with reading OCR
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRSetting.Mode">
+            <summary>
+            OCR mode
+            0 = Disabled
+            1 = Normal Video
+            2 = Inverse Video
+            3 = Both
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRSetting.UserTemplate">
+            <summary>
+            The OCR user template which is passed as a byte array
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.OCRSetting.ActiveTemplates">
+             <summary>
+             The active template to use
+             1 = User defined template
+             2 = Passport template
+             4 = ISBN template
+             8 = Price field template
+             16 = MicrE-13 B temaplate
+            
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.LastDecode">
+            <summary>
+            LastDecode properties are used to retrieve details about the last decode attempt.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.Time">
+            <summary>
+            Last decode time in msec
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.Length">
+            <summary>
+            Length of decode data
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.CodeID">
+            <summary>
+            Code ID of last code read
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.AimID">
+            <summary>
+            AIM ID of last code read
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.AimModifier">
+            <summary>
+            AIM ID of last modifier read
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LastDecode.Data">
+            <summary>
+            Last decode data
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.Revision">
+            <summary>
+            Revision properties are used to retrieve revision details about the various DLLs related to scanning.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.DecoderAPI">
+            <summary>
+            Revision of DecoderAPI library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.PrimaryDecoder">
+            <summary>
+            Revision of primary decoder library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.SecondaryDecoder">
+            <summary>
+            Revision of secondary decoder library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.DecodeControlLogic">
+            <summary>
+            Revision of decode control logic library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.DecodeThreads">
+            <summary>
+            Reveision of DecThreads library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.ScanInterface">
+            <summary>
+            Revision of scan interface library
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Revision.ScanDriver">
+            <summary>
+            Revision of scan driver
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IQImage">
+            <summary>
+            IQ Image properties are used to define the details associated with an IQ Image capture attempt.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.AspectRatio">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.X_Offset">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.Y_Offset">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.ImageWidth">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.ImageHeight">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.Resolution">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IQImage.Format">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes">
+            <summary>
+            Postal codes are properties used to enable a specific postal barcode. NOTE: Only one PostalCode may be enable at a time.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.NoPostals">
+            <summary>
+            No postals enabled
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.AustralianPost">
+            <summary>
+            Australian Post
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.BritishPost">
+            <summary>
+            British Post
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.JapanesePost">
+            <summary>
+            Japanese Post
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.KIXPost">
+            <summary>
+            "KIX" Netherlands Post
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.PlanetCode">
+            <summary>
+            Planet Code
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.Postnet">
+            <summary>
+            Postnet
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.RoyalPost">
+            <summary>
+            Royal Mail
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.British_Royal">
+            <summary>
+            Both British Post and Royal mail
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.UPU_4_State">
+            <summary>
+            USPS 4 State
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.USPS_4_State">
+            <summary>
+            USPS 4 State
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.Planet_Posnet">
+            <summary>
+            Planet Code and Postnet
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.US_Postals">
+            <summary>
+            All US Postal codes
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.PostalCodes.CanadianPost">
+            <summary>
+            Canadian Post
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes">
+            <summary>
+            RetailCodes are properties used to set or get the symbology specific settings for retail codes like UPC, EAN13. etc.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.CouponCodeEnabled">
+            <summary>
+            1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_Enabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_ChKDigitXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_NumSysXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_2DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_5DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_AddendaReq">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_A_AddendaXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E0_Enabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E1_Enabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_Expand">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_ChKDigitXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_NumSysXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_2DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_5DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_AddendaReq">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.UPC_E_AddendaSeparator">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_Enabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_ChKDigitXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_2DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_5DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_AddendaReq">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_8_AddendaSeparator">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_Enabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_ChKDigitXmit">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_2DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_5DigitAddendaEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_AddendaReq">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_AddendaSeparator">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.RetailCodes.EAN_13_ISBNEnabled">
+            <summary>
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes">
+            <summary>
+            LinearCodes are properties used to set or get the symbology specific settings for linear\1D barcodes like Code39, Code128 etc.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128MinLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128MaxLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128AppendEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.GS1_128Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.GS1_128MinLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.GS1_128MaxLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.ISBT128Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128FNC1Sub">
+            <summary>
+            Allowed values 0-255.
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code128FNC1Transmit">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39MinLength">
+            <summary>
+            Allowed values = 0-48.
+            Default = 2
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39MaxLength">
+            <summary>
+            Allowed values = 0-48.
+            Default = 48
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39CheckDigitMode">
+            <summary>
+            Allowed values 0-2. 
+            0 Xmit has no effect, still  xmit the check digit
+            1 Enable check digit and xmit check digit
+            2 Enable check digit but DO NOT xmit the check digit
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39FullAsciiEnable">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39StartStopTransmit">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code39Base32Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.TLC39Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.TriopticEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Int25Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Int25MinLength">
+            <summary>
+            Allowed values 2-80.
+            Default = 2
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Int25MaxLength">
+            <summary>
+            Allowed values 2-80.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Int25CheckDigitMode">
+            <summary>
+            Allowed values 0-2. 
+            0 Xmit has no effect, still  xmit the check digit
+            1 Enable check digit and xmit check digit
+            2 Enable check digit but DO NOT xmit the check digit
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Standard25Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Standard25MinLength">
+            <summary>
+            Allowed values 4-48.
+            Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Standard25MaxLength">
+            <summary>
+            Allowed values 4-48.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.IATA25Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.IATA25MinLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.IATA25MaxLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Matrix25Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Matrix25MinLength">
+            <summary>
+            Allowed values 4-80
+            Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Matrix25MaxLength">
+            <summary>
+            Allowed values 4-80
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Matrix25CheckDigitMode">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.NEC25Enabled">
+            <summary>
+            Not support.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.NEC25MinLength">
+            <summary>
+            Not support. 
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.NEC25MaxLength">
+            <summary>
+            Not support. 
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.NEC25CheckDigitMode">
+            <summary>
+            Not support.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code93Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code93MinLength">
+            <summary>
+            Allowed values 0-80.
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code93MaxLength">
+            <summary>
+            Allowed values 0-80
+            Default 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code93AppendEnable">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code11Enabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code11MinLength">
+            <summary>
+            Allowed values 1-80.
+            Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code11MaxLength">
+            <summary>
+            Allowed values 1-80.
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.Code11CheckDigitMode">
+            <summary>
+            Allowed values 2-3. 
+            2 Enable check digit but DO NOT xmit the check digit
+            3 Don’t enable check digit, still xmit the check digit
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarMinLength">
+            <summary>
+            Allowed values 2-60. 
+            Default = 2
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarMaxLength">
+            <summary>
+            Allowed values 2-60. 
+            Default = 60
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarStartStopXmit">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarCheckDigitMode">
+            <summary>
+            Allowed values 0-2. 
+            0 Xmit has no effect, still  xmit the check digit
+            1 Enable check digit and xmit check digit
+            2 Enable check digit but DO NOT xmit the check digit
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.CodabarConcatEnable">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.TelepenEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.TelepenMinLength">
+            <summary>
+            Allowed values 1-60. 
+            Default = 1
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.TelepenMaxLength">
+            <summary>
+            Allowed values 1-60. 
+            Default = 60
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.MSIEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.MSIMinLength">
+            <summary>
+            Allowed values 4-48. 
+            Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.MSIMaxLength">
+            <summary>
+            Allowed values 4-48. 
+            Default = 48
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.MSICheckDigitMode">
+            <summary>
+            Allowed values 1,5. 
+            1 Xmit check digit
+            5 DO NOT xmit the check digit
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.RSS_14EEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.RSS_LimitedEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.RSS_ExpandedEnabled">
+            <summary>
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.RSSExpandedMinLength">
+            <summary>
+            Allowed values 1-80 
+            Default = 1
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.RSSExpandedMaxLength">
+            <summary>
+            Allowed values 1-80 
+            Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.ChinaPostEnabled">
+            <summary>
+            Used to enable or disable.
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.ChinaPostMinLength">
+            <summary>
+            Used to define min length barcode must be
+            Allowed values 4-80. Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.ChinaPostMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            Allowed values 4-80. Default = 80
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.KoreanPostEnabled">
+            <summary>
+            Used to enable or disable
+            Allowed values 0-1. 1 = Enable 0 = Disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.KoreanPostMinLength">
+            <summary>
+            Used to define min length barcode must be
+            Allowed values 4-48. Default = 4
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.KoreanPostMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            Allowed values 4-48. Default = 48
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.KoreanPostChkDigitXmit">
+            <summary>
+            Used to enable check digit transmit
+            Allowed values 0-1. 
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.LinearCodes.KoreanPostReverseOutput">
+            <summary>
+            Not support.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes">
+            <summary>
+            MatrixCode properties are used to set or get the symbology specific settings for matrix or 2 Dimensional barcodes like PDF 417
+            Maxicode, QR Code, etc
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.AztecEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.AztecMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.AztecMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.AztecAppendEnable">
+            <summary>
+            Used to enable append mode
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_A_Enabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_A_MinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_A_MaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_F_Enabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_F_MinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CodaBlock_F_MaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CompositeEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CompositeMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CompositeMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.CompositeWithUPCEnabled">
+            <summary>
+            Used to composite with UPC
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MicroPDFEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MicroPDFMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MicroPDFMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.PDF417Enabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.PDF417MinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.PDF417MaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MaxicodeEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MaxicodeMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.MaxicodeMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.DataMatrixEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.DataMatrixMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.DataMatrixMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.QRCodeEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.QRCodeMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.QRCodeMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.QRCodeAppendEnable">
+            <summary>
+            Used to enable QR Code append mode
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.HanXinEnabled">
+            <summary>
+            Used to enable or disable
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.HanXinMinLength">
+            <summary>
+            Used to define min length barcode must be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.HanXinMaxLength">
+            <summary>
+            Used to define max length barcode can be
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.MatrixCodes.Postal">
+            <summary>
+            Used to select one of the postal codes for decoding
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting">
+            <summary>
+            The DecodeSetting properties are used to set and retrieve misc. properties associated with scanning
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.SearchTimeLimit">
+            <summary>
+            Number of msec the decoder is allowed to search an image for a possible barcode
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.DecodeAttemptlimit">
+            <summary>
+            Number of msec the decoder is allowed to attempt to decode a possible barcode for a given image
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.ScanningLightsMode">
+            <summary>
+            Used to select illumination and aimer settings use during a scan barcode apttempt
+            0 = No aimer or illumination during scanning
+            1 = Aimer only
+            7 = Illumination only
+            3 = Both illumination and aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.LastImageSize">
+            <summary>
+            Size of last captured image in bytes
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.ScanInProgress">
+            <summary>
+            Used to determine if decode\scan attempt is already in progress
+            1 = decode\scan attempt in progress
+            0 = no decode\scan in progress
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.DecodeSetting.ReverseVideoEnable">
+            <summary>
+            Used to enable reverse video, white barcodes printed on a black background
+            1 = Enable
+            0 = Disable
+            Default = 0
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.Engine">
+            <summary>
+            The Engine properties are used to retrieve details about the installed engine and to control
+            the illumination and aimer LEDs when not scanning
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.Type">
+            <summary>
+            Used to retrive installed engine type.
+            1 = Imager
+            2 = Laser
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.ID">
+            <summary>
+            Identifies the installed engine
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.NumRows">
+            <summary>
+            Number of rows in image engine
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.NumCols">
+            <summary>
+            Number of columns in image engine
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.BitsPerPixel">
+            <summary>
+            Bits per pixel
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.Rotation">
+            <summary>
+            Rotation
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.Xoffset">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.Yoffset">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.Engine.Depth">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.UnsupportedCodes">
+            <summary>
+            LinearCode are properties used to set or get the symbology specific settings for linear\1D barcodes.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes">
+            <summary>
+            Possible Return Codes from PInvoke DecoderAPI.dll Function Calls
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.Initialize">
+            <summary>
+            Initialized.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.Success">
+            <summary>
+            Successful operation.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.BadRegion">
+            <summary>
+            Bad Region error.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.DriverError">
+            <summary>
+            Driver error.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.EngineBusy">
+            <summary>
+            Scan engine is busy and could not respond to command
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.MemoryError">
+            <summary>
+            Memory error detected.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NoDecode">
+            <summary>
+            Decode library could not decode a barcode.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NoImage">
+            <summary>
+            System could not retrieve and image from the image engine.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NoResponse">
+            <summary>
+            The scan engine di dnot respond to the command
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NotConnected">
+            <summary>
+            Scan engine not connected.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.ParameterError">
+            <summary>
+            A bad parameter was passed.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.UnSupported">
+            <summary>
+            requested operation\command not supported.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NoTrigger">
+            <summary>
+            The application reported the "trigger" state is false.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.BadSmartImage">
+            <summary>
+            Bad IQ image.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.SmartImageTooLarge">
+            <summary>
+            IQ image is too large to fit in memory allocated.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.TooMuchInterpolation">
+            <summary>
+            Too Much Interpolation.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.ThreadError">
+            <summary>
+            Thread error in decode library.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.Cancel">
+            <summary>
+            Operation Canceled.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.DecoderException">
+            <summary>
+            An exception was detected in the decode library.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.UnsupportdIQBarcode">
+            <summary>
+            The barcode detected during the IQ image attempt is not a valid IQ host barcode.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.NoData">
+            <summary>
+            No data available.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.DecodeTfConfigSuccess">
+            <summary>
+            Total freedom config success...
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.ResultCodes.DecodeTfConfigFailure">
+            <summary>
+             Total freedom config failure...
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventHandler">
+            <summary>
+            Decode event delegate that handles the DecodeEventArgs.
+            </summary>
+            <param name="sender">Sender source.</param>
+            <param name="e">DecodeEventArgs class.</param>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs">
+            <summary>
+            The DecodeEventArgs class defines the data being passed to the decode event.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.Exception">
+            <summary>
+            Returns the Exception.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.DecodeException">
+            <summary>
+            Returns the DecodeException.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.ResultCode">
+            <summary>
+            Returns the Result code.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.Message">
+            <summary>
+            Returns the Message.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.CodeId">
+            <summary>
+            Returns the Code ID.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.AimId">
+            <summary>
+            Returns the Aim ID.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.AimModifier">
+            <summary>
+            Returns the Aim Modifier.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.Length">
+            <summary>
+            Returns the Length.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.DecodeEventArgs.RawData">
+            <summary>
+            Returns the raw decoded data.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.MultiDecodeEventHandler">
+            <summary>
+            MultiDecode event delegate that handles the MultiDecodeEventArgs.
+            </summary>
+            <param name="sender">Sender source.</param>
+            <param name="e">MultiDecodeEventArgs class.</param>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.MultiDecodeEventArgs">
+            <summary>
+            The MultiDecodeEventArgs class defines the data being passed to the Multidecode event.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats">
+            <summary>
+            Image File Format Options
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats.Bmp">
+            <summary>
+            Bitmap Format.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats.Gif">
+            <summary>
+            Graphics Interchange Format
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats.Jpeg">
+            <summary>
+            Joint Photographic Experts Group Format
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFileFormats.Png">
+            <summary>
+            Portable Network Graphics Format
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IqImageFormats">
+            <summary>
+            IQ Image Format Options
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFormats.Binary">
+            <summary>
+            Binarized Scale.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageFormats.Gray">
+            <summary>
+            Gray Scale.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IqImageTypes">
+            <summary>
+            IQ Image Operation Types
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageTypes.BarcodeAndImage">
+            <summary>
+            Both Barcode and Image.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Decoding.DecodeAssembly.IqImageTypes.ImageOnly">
+            <summary>
+            Only the Image.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IqImageEventHandler">
+            <summary>
+            IQ Image Event Delegate which will pass the IqImageEventArgs.
+            </summary>
+            <param name="sender">Object source.</param>
+            <param name="e">IqImageEventArgs class.</param>
+        </member>
+        <member name="T:HSM.Embedded.Decoding.DecodeAssembly.IqImageEventArgs">
+            <summary>
+            The IqImageEventArgs class defines the data that is being passed from the IqImage Event.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Decoding.DecodeAssembly.IqImageEventArgs.IqImage">
+            <summary>
+            Returns the IQ Image Data.
+            </summary>
+        </member>
+    </members>
+</doc>

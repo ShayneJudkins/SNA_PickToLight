@@ -1,0 +1,972 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HSM.Embedded.WirelessAssembly</name>
+    </assembly>
+    <members>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.#ctor">
+            <summary>
+            WirelessManager constructor
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.Finalize">
+            <summary>
+            WirelessManager finalizer
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.Dispose">
+            <summary>
+            Releases all resources.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.DbmToPercent(System.Int32)">
+             <summary>
+            From Dbm to percent (0-100)
+             </summary>
+             
+             <param name="lVal">
+             Dbm value.
+             </param>
+             
+             <returns> 
+            return Percent value
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SNRToPercent(System.Int32)">
+             <summary>
+            From SNR to percent (0-100)
+            </summary>
+            
+             <param name="lVal">
+             SNR value.
+             </param>
+             
+             <returns> 
+            return Percent value
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.NoiseToPercent(System.Int32)">
+             <summary>
+            From Noise to percent (0-100)
+            </summary>
+            
+             <param name="iNoise">
+             Noise value.
+             </param>
+             
+             <returns> 
+            return Percent value
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCOpen(System.String)">
+             <summary>
+            Open Adapter wpa control
+            </summary>
+            
+             <param name="pwszAdapterName">
+             adapter name.
+             </param>
+            
+             <returns> 
+            Return: HANDLE, NULL for failure
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCClose(System.IntPtr)">
+             <summary>
+            Close the HANDLE which opened by SWCOpen
+            </summary>
+            
+             <param name="hCtrl">
+             returned from SWCOpen.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCRequest(System.IntPtr,System.String,System.UInt32,System.String,System.UInt32@,System.IntPtr)">
+             <summary>  
+            request WPA with specified command
+            </summary>
+            
+             <param name="hCtrl">
+             returned from SWCOpen.
+             </param>
+             
+             <param name="pszCmd">
+             command to request, "STATUS" etc....
+             </param>
+             
+             <param name="dwCmdLen">
+              command length.
+             </param>
+            
+             <param name="pszReply">
+             reply.
+             </param>
+             
+             <param name="pdwReplyLen">
+             length of reply message.
+             </param>
+             
+             <param name="pReserved">
+             should be NULL.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCRecv(System.IntPtr,System.String,System.UInt32@)">
+             <summary>  
+            receive reply
+            </summary> 
+            
+             <param name="hCtrl">
+             returned from SWCOpen.
+             </param>
+             
+             <param name="pszReply">
+             reply message.
+             </param>
+             
+             <param name="pdwReplyLen">
+             length of reply message.
+             </param>
+            
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCPending(System.IntPtr)">
+             <summary>  
+            Pending the message
+            </summary> 
+            
+             <param name="hCtrl">
+             HANDLE.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCAttach(System.IntPtr)">
+             <summary>  
+            Attach to WPA contorl HANDLE
+            </summary> 
+            
+             <param name="hCtrl">
+             HANDLE of WPA control HANDLE.
+             </param>
+             
+             <returns> 
+            return: -2 invalid handle, -1 queue access failure, 0 no messages pending, 1 messages queued
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SWCDetach(System.IntPtr)">
+             <summary>  
+            Detach WPA control
+            </summary> 
+            
+             <param name="hCtrl">
+             HANDLE of WPA control HANDLE.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.HasWLAN">
+             <summary>  
+            Check if WLAN exist
+            </summary>
+            
+             <returns> 
+            return: true if present, false if not present.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.HasBT">
+             <summary>  
+            Check if BT exist
+            </summary>
+            
+             <returns> 
+            return: true if present, false if not present.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.HasWWAN">
+             <summary>  
+            Check if PHONE exist
+            </summary> 
+            
+             <returns> 
+            return: true if present, false if not present.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.HasGPS">
+             <summary>  
+            Check if GPS exist
+            </summary> 
+            
+             <returns> 
+            return: true if present, false if not present.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.HasGOBI">
+             <summary>  
+            Check if GOBI exist
+            </summary>
+            
+             <returns> 
+            return: true if present, false if not present.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetWLANState(System.Boolean)">
+             <summary>  
+            Set WLAN state
+            </summary> 
+            
+             <param name="bState">
+             TURE for enable, FALSE for disable
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWLANState(System.Boolean@)">
+             <summary>  
+            Get WLAN state
+            </summary>
+            
+             <param name="bState">
+             out, for TURE for enable, FALSE for disable
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetGOBIState(System.Boolean)">
+             <summary>  
+            Set GOBI state
+            </summary>
+            
+             <param name="bState">
+             TURE for enable, FALSE for disable
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetGOBIState(System.Boolean@)">
+             <summary>  
+            Get GOBI state
+            </summary>  
+            
+             <param name="bState">
+             out, for TURE for enable, FALSE for disable
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetBTState(System.Boolean)">
+             <summary>  
+            Set BT(bluetooth) state
+            </summary> 
+            
+             <param name="dwState">
+              in, BT state.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetBTState(HSM.Embedded.WirelessAssembly.WirelessManager.BTH_RADIO_MODE@)">
+             <summary>  
+            Get BT(bluetooth) state
+            </summary>  
+            
+             <param name="pdwState">
+              out, BT state.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetWWANState(System.Boolean)">
+             <summary>  
+            Set WWAN(PHONE) state
+            </summary>
+            
+             <param name="bState">
+             out,for TURE for enable, FALSE for disable.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWWANState(System.Boolean@)">
+             <summary>  
+            Get WWAN(PHONE) state
+            </summary> 
+            
+             <param name="bState">
+             out,for TURE for enable, FALSE for disable.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetActiveSIM(System.UInt32)">
+             <summary>  
+            Set Active SIM
+            </summary> 
+            
+             <param name="activeSIM">
+             active SIM.
+             </param>
+            
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetActiveSIM(System.UInt32@)">
+             <summary>  
+            Set Active SIM
+            </summary> 
+            
+             <param name="activeSIM">
+             active SIM.
+             </param>
+            
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWirelessRadioName(HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE,System.String,System.UInt32)">
+             <summary>  
+            Get Wireless Radio Name  
+            </summary> 
+            
+             <param name="radioType">
+             Radio Type.
+             </param>
+            
+             <param name="pszName">
+             Radio Name.
+             </param>
+            
+             <param name="dwMaxChars">
+             max chars of radio name.
+             </param>
+            
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetBlueToothRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE@)">
+             <summary>  
+            Get BT hardware type 
+            </summary> 
+            
+             <param name="pBTType">
+             BT hardware type, BLUETOOTH_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWWANRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE@)">
+             <summary>  
+            Get WWAN hardware type 
+            </summary> 
+            
+             <param name="pWWANType">
+              WWAN hardware type, WWAN_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWIFIRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE@)">
+             <summary>  
+            Get  WIFI hardware type 
+            </summary> 
+            
+             <param name="pWFType">
+              WIFI_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetRadioHardwareTypeStringBT(HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE)">
+             <summary>  
+            Get BT hardware type string
+            Params: pBTType, BLUETOOTH_HARDWARE_TYPE ENUM
+            </summary>
+            
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetRadioHardwareTypeStringWIFI(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE)">
+             <summary>  
+            Get WIFI hardware type with string
+            </summary> 
+            
+             <param name="pWFType">
+              WIFI_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetRadioHardwareTypeStringWWAN(HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE)">
+             <summary>  
+            Get WWAN hardware type string
+            </summary>
+            
+             <param name="pWWANType">
+             WWAN_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWifiAdapterName">
+             <summary>
+            Get Wifi Adapter Name
+            </summary>
+            
+             <returns> 
+            return: Adapter name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterEnableState(System.Boolean@)">
+             <summary>
+            Get Wifi Adapter enable state
+            </summary>
+            
+             <param name="pbEnabled">
+             TRUE for enable,FALSE for disable.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.SetWiFiAdapterEnableState(System.Boolean)">
+             <summary>
+            Set Wifi Adapter state
+            </summary>
+            
+             <param name="bEnabled">
+             TRUE for enable,FALSE for disable.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterStatus(HSM.Embedded.WirelessAssembly.WirelessManager.WIFISTATUS@)">
+             <summary>
+            Get Wifi Adapter status
+            </summary>
+            
+             <param name="pdwStatus">
+             WIFISTATUS enum.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterLinkQuality(System.Int32@,System.Int32@,System.Int32@)">
+             <summary>
+            Get Wifi Link Quality
+            </summary>
+            
+             <param name="piSignalStrengthdBm">
+             signal strength dBm.
+             </param>
+             
+             <param name="piNoisedBm">
+             noise with dBm.
+             </param>
+             
+             <param name="piSNRdB">
+             SNR db.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterSSID">
+            <summary>
+            Gets the current SSID (Service Set Identifier).
+            </summary>
+            
+            <returns>
+            Returns a byte array containing the current SSID.
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterMacAddress">
+            <summary>
+            Gets the MAC address of the adapter.
+            </summary>
+            
+            <returns>
+            Returns a byte array of the NIC's Mac Address.
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterPowerMode(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_POWERMODE@)">
+             <summary>
+            Get Wifi Adapter power mode
+             </summary>
+            
+             <param name="pdwPowerMode">
+             WIFI_POWERMODE ENUM pointer.
+             </param>
+             
+             <summary>
+             <returns> return: 0 indicates success, other values are equal to Microsoft standard error code.</returns>
+             </summary>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterBSSID">
+            <summary>
+            Gets the MAC address of the associated access point.
+            </summary>
+            
+            <returns>
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterBSSMode(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_BSSMODE@)">
+             <summary>
+            Get Wifi Adapter BSS Mode
+             </summary>
+             
+             <param name="pBSSMode">
+             WIFI_BSSMODE ENUM.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterChannel(System.UInt32@)">
+             <summary>
+            Get Wifi Adapter channel
+             </summary>
+            
+             <param name="pdwChannel">
+             channel with DWORD.
+             </param>
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterChannelEx(System.UInt32@,System.Single@)">
+             <summary>
+            Get Wifi Adapter channel
+             </summary>
+             
+             <param name="pdwChannel">
+             channel with DWORD
+             </param>
+             
+             <param name="pfBand">
+            Band with float.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiAdapterTxRate(System.UInt32@)">
+             <summary>
+            Get Wifi Adapter transmit rate
+             </summary>
+             
+             <param name="pdwTxRate">
+             transmit rate with DWORD.
+             </param>
+             
+             <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.ScanWiFiAdapterBSSIDList">
+            <summary>
+            Scan the RF Adapter list for active SSID codes.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.IterateAdapterBSSIDList(System.UInt32,System.Byte[],System.UInt32,System.Byte[],System.UInt32,System.UInt32@,System.UInt32@,HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_BSSMODE@)">
+            <summary>
+            Iterate through the RF Adapter list of active SSID codes and retrieve
+            the specified parameters. ScanBSSIDList must be called first
+            in order to populate this list.
+            </summary>
+            <param name="index">An index into the RF adapter list.
+            </param>
+            <param name="aMACAddr">A byte array to receive the MAC address of the adapter.
+            </param>
+            <param name="addrSize">The size of the address buffer being received.
+            </param>
+            <param name="aSSID">A byte array to receive the BSSID of the adapter.
+            </param>
+            <param name="idSize">The size of the SSID buffer being received.
+            </param>
+            <param name="WEP">A reference to receive the WEP of the adapter.
+            </param>
+            <param name="signalStrength">A reference to receive the signal strength 
+            of the adapter.
+            </param>
+            <param name="BSSMode">A reference to receive the BSS mode of the adapter.
+            </param>
+            <returns> 
+            return: 0 indicates success, other values are equal to Microsoft standard error code.
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetBTRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE@)">
+             <summary>  
+            Get BT hardware type 
+             </summary>
+             
+             <param name="pBTType">BT hardware type, BLUETOOTH_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+              return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWWanRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE@)">
+             <summary>  
+            Get WWAN hardware type 
+             </summary>  
+             
+             <param name="pWWANType">WWAN hardware type, WWAN_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+              return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWiFiRadioType(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE@)">
+             <summary>  
+            Get  WIFI hardware type 
+             </summary>  
+             
+             <param name="pWFType">WIFI hardware type, WIFI_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+              return: 0 indicates success, other values are equal to Microsoft standard error code.
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetBTHardwareTypeString(HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE)">
+             <summary>  
+            Get BT hardware type string
+             </summary>
+             
+             <param name="pBTType">BLUETOOTH_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWIFIHardwareTypeString(HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE)">
+             <summary>  
+            Get WIFI hardware type with string     
+             </summary> 
+             
+             <param name="pWFType">WIFI_HARDWARE_TYPE ENUM .
+             </param>
+             
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.WirelessAssembly.WirelessManager.GetWWanHardwareTypeString(HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE)">
+             <summary>  
+            Get WWAN hardware type string
+             </summary> 
+             
+             <param name="pWWANType">WWAN_HARDWARE_TYPE ENUM.
+             </param>
+             
+             <returns> 
+            return radio hardware name
+             </returns>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.BssMode">
+            <summary>
+            Gets the Basic Service Set (BSS).
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.Status">
+            <summary>
+            Gets the status of the radio.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.PowerMode">
+            <summary>
+            Gets the current Power mode.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.SSID">
+            <summary>
+            Gets the current Service Set Identifier (SSID).
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.AccessPointMacAddress">
+            <summary>
+            Gets the MAC address of the associated access point.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.WirelessAssembly.WirelessManager.RadioMacAddress">
+            <summary>
+            Gets the radio's MAC Address.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WIFISTATUS">
+             <summary>
+            WiFi status
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_POWERMODE">
+             <summary>
+            WiFi power mode
+             </summary>
+             
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_BSSMODE">
+             <summary>
+            WiFi bss mode
+             </summary>
+             
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE">
+             <summary>
+            Bluetooth Hardware Types
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_NONE">
+             <summary>
+            No Bluetooth radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_SOCKET">
+             <summary>
+            Socket BT module used in 9500,7900
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_PHILIPS_BGB203">
+             <summary>
+            Philips BGB203 Bluetooth module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_CSR_BlueCore4ROM">
+             <summary>
+            CSR Bluetooth module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_USI">
+             <summary>
+            USI Bluetooth module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_TI_1273">
+             <summary>
+            TI 1273 Bluetooth module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_WISTRON">
+             <summary>
+            Wistron Bluetooth module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BLUETOOTH_HARDWARE_TYPE.BLUETOOTH_BROADCOM4329">
+             <summary>
+            BroadCom Bluetooth module
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE">
+             <summary>
+            WiFi Hardware Types
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_NONE">
+             <summary>
+            No Wifi radio present
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_SYCHIP_6065_CF">
+             <summary>
+            SyChip 6065 Compact Flash Module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_PHILIPS_BGW203_SPI">
+             <summary>
+            Philips BGW203 802.11b Module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_USI_SD8686_SDIO">
+             <summary>
+            USI SDIO 802.11g radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_USI_SD8686_SPI">
+             <summary>
+            USI SPI 802.11g radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_SEMCO_SWL_2460">
+             <summary>
+            SEMCO WiFi radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_USI_SD8688_SPI">
+             <summary>
+            USI SPI 802.11a/b/g
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_TI_1273">
+             <summary>
+            TI 1273 802.11a/b/d/g/n radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIFI_HARDWARE_TYPE.WIFI_BCM_4329">
+             <summary>
+            Broadcom 4329 WLAN/BT b/g/n module
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE">
+             <summary>
+            WWAN Hardware Types(expanded - formerly just WWAN hardware types)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_NONE">
+             <summary>
+            No GSM radio
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_SIEMENS_MC45">
+             <summary>
+            9500,7900 Siemens MC-45 GSM module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_SIEMENS_MC46">
+             <summary>
+            Siemens MC-46 module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_SIEMENS_MC75">
+             <summary>
+            Siemens MC-75 module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_CINTERION_HC25">
+             <summary>
+            Cinterion HC-25
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_CINTERION_PH8">
+             <summary>
+            Cinterion PH8 module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_GOBI_2000">
+             <summary>
+            Gobi 2000 module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_GOBI_3000">
+            <summary>
+            Gobi 3000 module
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_WISTRON">
+            <summary>
+            Sierra 8795v
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_CDMA_WISTRON">
+            <summary>
+            Sierra 5728v
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WWAN_HARDWARE_TYPE.WWAN_CDMA_5728v">
+            <summary>
+            Sierra 5728v
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE">
+             <summary>
+            wireless radio type
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE.WIRELESS_RADIOTYPE_WLAN">
+             <summary>
+            radio type is WIFI
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE.WIRELESS_RADIOTYPE_PHONE">
+             <summary>
+            radio type is PHONE
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE.WIRELESS_RADIOTYPE_BLUETOOTH">
+             <summary>
+            radio type is BLUE TOOTH
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE.WIRELESS_RADIOTYPE_GPS">
+             <summary>
+            radio type is GPS
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.WIRELESS_RADIOTYPE.WIRELESS_RADIOTYPE_GOBI">
+             <summary>
+            radio type is GOBI
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.WirelessAssembly.WirelessManager.BTH_RADIO_MODE">
+             <summary>
+            bluetooth radio mode
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BTH_RADIO_MODE.BTH_POWER_OFF">
+             <summary>
+            power off
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BTH_RADIO_MODE.BTH_CONNECTABLE">
+             <summary>
+            Power on or Connectable for BlueTooth
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.WirelessAssembly.WirelessManager.BTH_RADIO_MODE.BTH_DISCOVERABLE">
+             <summary>
+            Discoverable only for BlueTooth
+             </summary>
+        </member>
+    </members>
+</doc>
