@@ -1,0 +1,2455 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HSM.Embedded.Hardware.DeviceHardwareAssembly</name>
+    </assembly>
+    <members>
+        <member name="T:HSM.Embedded.Info">
+            <summary>
+            Info for p/Invoke DeviceAPI.dll including:
+               system info, device info, event process
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.ERROR_SUCCESS">
+            <summary>
+            API return ERROR_SUCCESS for success
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH">
+            <summary>  
+            Bluetooth radio bit
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_80211B">
+            <summary>  
+            802.11b radio bit
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI">
+            <summary>  
+             Generic definition for new radio reporting/power management
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GSM">
+            <summary>  
+            GSM radio bit
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN">
+            <summary>  
+            WWAN radio bit
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS">
+            <summary>  
+            GPS radio bit, hardware query only support
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_NFC">
+            <summary>  
+            NFC radio bit
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BT_921K">
+            <summary>  
+            Bluetooth radio is 921Kbaud bit (radio presence only)
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_UNKNOWN">
+            <summary>
+            Unknow scanner type
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_NONE">
+            <summary>
+            No Scanner Type
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT4200">
+            <summary>
+            WelchAllyn IT4200 imager
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_SE1200">
+            <summary>
+            Symbol SE1200 non-decoded laser
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_SE1223">
+            <summary>
+            Symbol SE1223 decoded laser
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_WAYFARER">
+            <summary>
+            Wayfarer RF ID reader
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT4000">
+            <summary>
+            WelchAllyn IT4000 imager (IC Media mini-imager)
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT4100">
+            <summary>
+            WelchAllyn IT4100 imager (IC Media mini-imager) Bright Aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT4300">
+            <summary>
+            WelchAllyn IT4300 imager (IC Media mini-imager) Laser Aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT5100">
+            <summary>
+            WelchAllyn IT5100 imager (Micron imager) Bright LED
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT5300">
+            <summary>
+            WelchAllyn IT5300 imager (Micron imager) Laser Aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT5000_VGA">
+            <summary>
+            IT5000VGA with out PSOC
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IT5000_VGA_PSOC">
+            <summary>
+            IT5000VGA with PSOC
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_N5603">
+            <summary>
+            Honeywell Gen 6 w/Laser aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_N5600">
+            <summary>
+            Honeywell Gen 6 w/LED aimer
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_IS4813">
+            <summary>
+            Honeywell IS4813 imager
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_HI704A">
+            <summary>
+            Honeywell HI2D imager (Dolphin 70e)
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SCANNER_TYPE_N4313">
+            <summary>
+            Honeywell N4313 decode-out laser imager
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYSWAKE_OEMBASE">
+            <summary>  
+             definition for wake sourece
+             </summary>  
+        </member>
+        <member name="M:HSM.Embedded.Info.#ctor">
+            <summary>
+            Info constructor
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Info.Finalize">
+            <summary>
+            Info finalizer
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.UInt32@)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is UInt32 that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+            0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.UInt32,System.UInt32@)">
+            <summary>
+            Request system inforamtion with uint param
+            </summary>
+            <param name="info">SYS_INFO_ENUM</param>
+            <param name="inParam">[in] request input</param>
+            <param name="outParam">[out] request output</param>
+            <returns>0 for success, else for fail</returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.UInt32[])">
+            <summary>
+            Request system inforamtion with uint param
+            </summary>
+            <param name="info">SYS_INFO_ENUM</param>
+            <param name="inParam">[in] request input, should be uint arrary with size 2</param>
+            <returns>0 for success, else for fail</returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.String@)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is String that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+            0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.Byte[]@)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is Byte that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+            0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.Int32[]@)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is Int32 array that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+             0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfoStruct``1(HSM.Embedded.Info.SYS_INFO_ENUM,``0@)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is struct that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+             0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfo(HSM.Embedded.Info.DEV_INFO_ENUM,System.UInt32@)">
+            <param name="value">[out] type is UInt32 that used to receive the output data for the operation.
+            please look up the comments fo the DEV_INFO_ENUM to check which DEV_INFO_ENUM use it to 
+            obtain the output value   
+            </param>
+            
+            <returns> 
+            return value:  0 for success, else for fail
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfo(HSM.Embedded.Info.DEV_INFO_ENUM,System.Byte[]@)">
+            <param name="value">[out] type is Byte array that used to receive the output data for the operation.
+            please look up the comments fo the DEV_INFO_ENUM to check which DEV_INFO_ENUM use it to 
+            obtain the output value   
+            </param>
+            
+            <returns> 
+            0 for success, else for fail
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfo(HSM.Embedded.Info.DEV_INFO_ENUM,System.Int32[]@)">
+            <summary>  
+             obtain the Device information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+               
+             <param name="value">[out] type is Int32 array that used to receive the output data for the operation.
+             please look up the comments fo the SYS_INFO_ENUM to check which SYS_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+            0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfo(HSM.Embedded.Info.DEV_INFO_ENUM,System.String@)">
+            <summary>  
+             obtain the Device information with this funtion.
+             </summary>
+            
+             <param name="info">[in] DEV_INFO_ENUM, enumeration of request 
+             </param>
+             
+             <param name="value">[out] type is String that used to receive the output data for the operation.
+             please look up the comments fo the DEV_INFO_ENUM to check which DEV_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+             return value: 0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfoStruct``1(HSM.Embedded.Info.DEV_INFO_ENUM,``0@)">
+            <summary>  
+             obtain the Device information with this funtion.
+             </summary>
+            
+             <param name="info">[in] DEV_INFO_ENUM, enumeration of request 
+             </param>
+             <param name="value">[out] type is struct that used to receive the output data for the operation.
+             please look up the comments fo the DEV_INFO_ENUM to check which DEV_INFO_ENUM use it to 
+             obtain the output value   
+             </param>
+             
+             <returns> 
+            return value: 0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestSysInfo(HSM.Embedded.Info.SYS_INFO_ENUM,System.IntPtr,System.Int32,System.IntPtr,System.Int32)">
+            <summary>  
+             obtain the system information with this funtion.
+             </summary>  
+             
+             <param name="sysInfo">[in] SYS_INFO_ENUM, enumeration of request.
+             </param>
+             
+             <param name="lpInBuf">[in] Pointer to a buffer that contains the data required to perform the operation.
+             Set to NULL if the sysInfo parameter specifies an operation that does not require input data.
+             </param>
+             
+             <param name="nInBufSize">[in] Size, in bytes, of the buffer pointed to by lpInBuf.
+             </param>
+             
+             <param name="lpOutBuf">[out] Pointer to a buffer that receives the output data for the operation. Set to NULL if the                      
+              SYS_INFO_ENUM parameter specifies an operation that does not produce output data nOutBufSize. 
+             </param>
+             
+             <param name="nOutBufSize">Size, in bytes, of the buffer pointed to by lpOutBuf.
+             </param>
+             
+             <returns> 
+            return value: 0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RequestDevInfo(HSM.Embedded.Info.DEV_INFO_ENUM,System.IntPtr,System.Int32,System.IntPtr,System.Int32)">
+            <summary>  
+             obtain the Device information with this funtion.
+             </summary>
+            
+             <param name="devInfo">[in] DEV_INFO_ENUM, enumeration of request 
+             </param>
+             
+             <param name="lpInBuf">[in] Pointer to a buffer that contains the data required to perform the operation.
+                  Set to NULL if the sysInfo parameter specifies an operation that does not require input data.
+             </param>
+            
+             <param name="nInBufSize">[in] Size, in bytes, of the buffer pointed to by lpInBuf.
+             </param>
+             
+             <param name="lpOutBuf">[out] Pointer to a buffer that receives the output data for the operation. Set to NULL if the                      
+                 SYS_INFO_ENUM parameter specifies an operation that does not produce output data.
+             </param>
+             
+             <param name="nOutBufSize">Size, in bytes, of the buffer pointed to by lpOutBuf.
+             </param>
+             
+             <returns> 
+             return value: 0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.WaitEventSync(HSM.Embedded.Info.SYS_NAMED_EVENT,System.Int32)">
+            <summary>  
+             monitor the event synchronously.
+             </summary>   
+            
+             <param name="sysEvent">SYS_NAMED_EVENT, enumeration of event.
+             </param>
+             
+             <param name="dwMs">[in] Specifies the time-out interval, in milliseconds. The function returns 
+             if the interval elapses, even if the object's state is nonsignaled. If dwMs is zero, the function 
+             tests the object's state and returns immediately. If dwMs is INFINITE, the function's time-out 
+             interval never elapses.
+             </param>
+             
+             <returns> 
+             return value: 0 for success, else for fail
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.RegisterEventListener(HSM.Embedded.Info.SYS_NAMED_EVENT,System.Int32,HSM.Embedded.Info.EventCallBack)">
+            <summary>  
+             register a listener to monitor the event asynchronously.
+             </summary>  
+             
+             <param name="sysEvent">SYS_NAMED_EVENT, enumeration of event.
+             </param>
+             
+             <param name="dwMs">[in] Specifies the time-out interval, in milliseconds.  It should be greater than 0.
+             </param>
+             
+             <param name="eCallBack">[in] call back function, when event signaled or timeout, it will be called. It can’t be NULL.
+             </param>
+             
+             <returns> 
+             return value: IntPtr.Zero for fail, otherwise success
+             </returns>
+        </member>
+        <member name="M:HSM.Embedded.Info.UnregisterEventListener(System.IntPtr)">
+            <summary>  
+             Unregister a listener that monitor the event asynchronously.
+             </summary>  
+             
+             <param name="handle">[in] call back function, when event signaled or timeout, it will be called. It can’t be NULL.
+             </param>
+             
+             <returns> 
+             [in] event listener handle, return by RegisterEventListener
+             </returns>
+        </member>
+        <member name="T:HSM.Embedded.Info.SYS_INFO_ENUM">
+            <summary> 
+             System Info enumeration
+             Please refer to "Honeywell Custom IOCTLs and Named Events.doc" 
+             for more detail, including return value and platform supported
+             for 6100/6500, please refer to "D6x00_IOCTL_Rev2_13.pdf" sheet
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_FLASH_SIZE">
+             <summary>  
+            70e, 99EX, 6110, D60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_TYPE">
+             <summary>   
+            99EX,6100, 6110, D60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_FIRMWARE_VER_MAJOR">
+             <summary>   
+            99EX,6100-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_HARDWARE_REV">
+             <summary>   
+            70e,99EX,6100, D60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_FIRMWARE_VER_MINOR">
+             <summary>  
+            99EX,6100-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SCANNER_TYPE">
+             <summary>  
+            70e,99EX,6100, 6110, 60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_FIRMWARE_VER_SUFFIX">
+             <summary>  
+            99EX,6100-Supported
+            Type:[out]String
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_FIRMWARE_VER_DATE">
+             <summary>  
+            99EX,6100-Supported
+            Type: [out]String
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KEYBOARD_FIRMWARE_VER_TIME">
+            <summary>  
+            99EX,6100-Supported
+            Type: [out]String
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_FLASH_ARCH">
+            <summary>  
+            70e, 99EX,6100, 6110, 60s-Supported
+            Type: [out]FlashArchitecture
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_CPU_FREQ_MHZ">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_WIFI_DATA">
+            <summary>  
+              6110, 60s-Supported
+               Type: buffer of 256 bytes
+              The first 2 bytes are for radio type (RADIO_WIFI_HARDWARE_TYPE). 
+              The next 6 bytes: 48 bits Mac address
+              If the returned buffer length is greater than 8 bytes then the additional bytes are in free form 
+              binary and for additional WiFi information or configuration data.
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BT_DATA">
+            <summary>  
+            70e, 99EX,6100, 6110, 60s-Supported
+            Type: [in] NULL, [out]CSR_NVRam structure or CSR_Pad
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_5V_OUTPUT_ENABLE">
+            <summary>  
+             70e, 99EX, 6110, 60s?-Supported
+            Type: [in]NULL, [out]NULL, no input and output
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_5V_OUTPUT_DISABLE">
+            <summary>  
+             70e, 99EX, 6110, 60s?-Supported
+            Type: [in]NULL, [out]NULL, no input and output
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_SET_SERIAL_DEBUG_MODE">
+            <summary>  
+            70e, 99EX, 6110-Supported
+            Type: [in]UInt32 array of size 2  [out] NULL
+            UInt32[0] = Physical address of the serial debug port. This value must match the device serial port.
+            UInt32[1]=Enable flag, Enable (TRUE) or disable (FALSE) serial debug port
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_VER_MAJOR">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_VER_MINOR">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type:[in] NULL, [out]UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_VER_SUFFIX">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_VER_DATE">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_VER_TIME">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_BOOTLOADER_LOCALE">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_VER_MAJOR">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_VER_MINOR">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_VER_SUFFIX">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_VER_DATE">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_VER_TIME">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_IPL_LOCALE">
+            <summary>  
+            70e, 99EX, 6110, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_XLDR_VER_MAJOR">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_XLDR_VER_MINOR">
+            <summary>  
+             70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_XLDR_VER_SUFFIX">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out]string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_XLDR_VER_DATE">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_XLDR_VER_TIME">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out]string, size (16 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_DATE">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (9 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_TOUCHPANEL_TYPE">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SPEC_PARTNO">
+            <summary>  
+             6100-Supported
+            Type: [in] NULL, [out] string, size (17 characters)
+            This IOCTL is deprecated on all new WM6 based products starting with the Dolphin 7600 and 9900
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_MODEL_NUM">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_DISPLAY_TYPE">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_SERIAL_NUM_EX">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (17 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_PART_NUM_EX">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (25 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_ODM_TRACKING_NUM">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (17 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_CONFIG_NUM">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out]string, size (21 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_MODEL_NUM_STR">
+            <summary>  
+            70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (5 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_CUST_SERIAL_NUM">
+            <summary>  
+             70e, 99EX-Supported
+            Type: [in] NULL, [out] string, size (10 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_UPS_SERIAL_NUM">
+            <summary>  
+             70e, 99EX-Supported
+            Type: [in] NULL, [out] string, size (10 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_VER_MAJOR">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] Int32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_VER_MINOR">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_VER_SUFFIX">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out]string, size (16 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_VER_DATE">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_VER_TIME">
+            <summary>  
+            70e, 99EX, 6100, 6110, 60s-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_LCD_PARAMETERS">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] lcdDisplayParameters
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_LCD_DEFAULT_CONTRAST">
+            <summary>  
+             99EX-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MAX_OS_SIZE">
+            <summary>  
+            Pacifico, Black, 99EX-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_LCD_PANEL_TYPE">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] LcdDisplayType
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_SUSPEND">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            lpInBuf [in] Input buffer pointer, set to NULL
+            nInBufSize [in] Input buffer size Set to Wakeup Key
+            lpOutBuf [out] Pointer to an allocated buffer Set to NULL
+            nOutBufSize [in] Set to the number of sleep seconds as DWORD value
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_IMAGER_DATA">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] IMAGER_INFO 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_ENABLE_ISR_INFO">
+            <summary>  
+            99EX-Supported
+            Type: [in] NULL, [out] NULL 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_DISABLE_ISR_INFO">
+            <summary>  
+            99EX-Supported
+            Type: [in] NULL, [out] NULL 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_ISR_INFO">
+            <summary>  
+            99EX-Supported
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_LOCALE">
+            <summary>  
+            Pacifico, Black, 99EX-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_KERNEL_SIZE">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_COLD_BOOT">
+            <summary>  
+            6100, 70e, 99EX, , 6110, 60s-Supported
+            Type: [in] NULL, [out] NULL
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_COLD_BOOT_NO_WELCOME">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] NULL
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_FACTORY_RESET">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] NULL
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_RESET_REASON">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32, return value should be DEVICE_RESET_REASON enum
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_BLUETOOTH_BAUD">
+            <summary>  
+            6100, 70e, 99EX, 6110, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_RADIO_MASK">
+            <summary>  
+            99EX, 60s-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_SET_RADIO_MASK">
+            <summary>  
+            99EX-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_CLR_RADIO_MASK">
+            <summary>  
+            99EX-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_REBOOT">
+            <summary>  
+            6100, 70e, 99EX-Supported
+            Type: [in] NULL, [out] NULL
+            Windows Mobile only, don't use it on wince
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_QUERY_RADIO_TYPE">
+            <summary>  
+            6110, 70e, 99EX, 60s-Supported
+            Type: [in] Int32, [out] Int32, bitmask of "Radio Specific, Radio Type"
+            Windows Mobile only, don't use it on wince
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_SET_RADIO_TYPE">
+            <summary>  
+            6100, 70e, 99EX-Supported
+            Type: [in] UInt32 array of size 2, size(4 bytes) [out] NULL
+            UInt32[0]=Radio type mask
+            UInt32[1]= Enumerated radio hardware type
+            Windows Mobile only, don't use it on wince
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_LICENSE_KEY">
+            <summary>  
+            6100-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_WAKE_SOURCE">
+            <summary>  
+            6110, 99EX, 6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32, definition of wake source
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_CPLD_VER">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32, definition of wake source
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SBOOT_VER_MAJOR">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SBOOT_VER_MINOR">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SBOOT_VER_SUFFIX">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SBOOT_VER_DATE">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_SBOOT_VER_TIME">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] string, size (16 characters)
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_HARDWARE_STATE">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_NANDFLASH_TYPE">
+            <summary>  
+            6100, 6500-Supported
+            Type: [in] NULL, [out] UInt32
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_PROCESSOR_INFO">
+            <summary>  
+            WM support
+            Type:[in] NULL, [out] SYS_PROCESSOR_INFO struct
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_SERIAL_NUM">
+            <summary>  
+            support
+            Type:[in] NULL, [out] string, size (9 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_PART_NUM">
+            <summary>  
+            support
+            Type:[in] NULL, [out] string, size (16 characters)
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_GET_MFG_CPLD_VER">
+            <summary>  
+            6100, 6500-support
+            Type:[in] NULL, [out] string, size (17 characters)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_INFO_ENUM.SYS_SET_POWER_OFF">
+             <summary>
+            Black, 6110 support
+            Powers off the device
+            [in] NULL, [out] NULL
+            It may take up to 20 seconds for the power off to complete
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.SYS_NAMED_EVENT">
+            <summary>  
+            Event ID
+             </summary>
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_LCD_BACKLIGHT_ON">
+            <summary>  
+            Event Name: "BackLightOnNotifyEvent"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_LCD_BACKLIGHT_OFF">
+            <summary> 
+            Event Name: "BackLightOffNotifyEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_BATT_DATA_AVAILABLE">
+            <summary> 
+            Event Name: "HHPBattData"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_EXTERNAL_POWER_APPLIED">
+            <summary> 
+            Event Name: "BackLightAcLineStatusOnEvent"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_EXTERNAL_POWER_REMOVED">
+            <summary> 
+            Event Name: "BackLightAcLineStatusOffEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_NUM_LOCK_ON">
+            <summary> 
+            Event Name: "NumLockOnNotifyEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_NUM_LOCK_OFF">
+            <summary> 
+            Event Name: "NumLockOffNotifyEvent"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_CAPS_LOCK_ON">
+            <summary> 
+            Event Name: "CapsLockOnNotifyEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_CAPS_LOCK_OFF">
+            <summary> 
+            Event Name: "CapsLockOffNotifyEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_POWER_KEY_LOCKOUT">
+            <summary> 
+            Event Name: "PowerKeyLockoutEvent" 
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_POWER_KEY_NOTIFY">
+            <summary> 
+            Event Name: "PowerKeyNotifyEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_ENTER_TE_MODE">
+            <summary> 
+            Event Name: "UseConnectRF_KeyBoardMap"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_EXIT_TE_MODE">
+            <summary> 
+            Event Name : "DisableConnectRF_KeyBoardMap"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_TE_MODE_ACK">
+            <summary> 
+            Event Name: "HHPAckUseConnectMap"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_USB_CONNECTED">
+            <summary> 
+            Event Name: "UsbConnectedEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_USB_DISCONNECTED">
+            <summary> 
+            Event Name: "UsbDisconnectedEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_RTC_RESET">
+            <summary> 
+            Event Name: "RTCResetEvent"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_BATT_DOOR_REMOVED">
+            <summary> 
+            Event Name: "BattDoorRemove"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_BATT_LOW_MAIN">
+            <summary> 
+            Event Name: "HHPBatteryLowMain"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_UNLOCK_INPUT">
+            <summary> 
+            Event Name: "UnlockInputEvent"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_RED_KEY_SHIT_ACTIVE">
+            <summary> 
+            Event Name: "RedKeyShiftActive"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_RED_KEY_SHIT_INACTIVE">
+            <summary> 
+            Event Name: "RedKeyShiftInactive"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_BLUE_KEY_SHIT_ACTIVE">
+            <summary> 
+            Event Name: "BlueKeyShiftActive"
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_BLUE_KEY_SHIT_INACTIVE">
+            <summary> 
+            Event Name: "BlueKeyShiftInactive"
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_NAMED_EVENT.SYS_FLASH_LIGHT">
+            <summary> 
+            Event Name: "KEY_FlashlightEvent"
+             </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.DEV_INFO_ENUM">
+            <summary>  
+            Device INFO enumeration
+            </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_GET_VER">
+            <summary>  
+            GPS, only Black/99EX/7800 support
+            [in] NULL, [out]string
+            GPS firmware version 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_GET_CURRENTPOS">
+            <summary>  
+            [in] NULL, [out]LASTGOODLOCATION structure
+            obtains the most recent GPS position  
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_ENABLE_LOGGING">
+            <summary>  
+            [in] DWORD of value 1 (enable logging) or 0 (disable logging), [out] NULL
+            enables or disables the logging function
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_GET_INTERMEDIATE_LOGENTRY">
+            <summary>  
+            [in] NULL, [out] GPS_POSITION 
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_GET_LOGENTRY">
+            <summary>  
+            [in] NULL, [out] One GPS data record 450 bytes 
+            obtains the oldest log entry
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_SETWAYPOINT">
+            <summary>  
+            [in] SGPSSETWAYPOINT, [out] NULL
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_GETWAYPOINT">
+            <summary>  
+            [in] DWORD waypoint ID,[out] SGPSSETWAYPOINT
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_DELWAYPOINT">
+            <summary>  
+            [in]DWORD waypoint ID, [out] NULL
+            delete a waypoint
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_ENABLEWAYPOINT">
+            <summary>  
+            [in]DWORD waypoint ID, [out] NULL
+            enable a waypoint
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_GPS_DISABLEWAYPOINT">
+            <summary>  
+            [in]DWORD waypoint ID, [out] NULL
+            disable a waypoint
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_CAM_GET_CHIP_VERSION">
+            <summary>  
+            [in] NULL, [out] DWORD
+            Get chip version
+             </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.DEV_INFO_ENUM.DEV_CAM_GET_FIRMWARE_VERSION">
+            <summary>  
+            [in] NULL, [out] DWORD
+            Get firmware version
+             </summary> 
+        </member>
+        <member name="T:HSM.Embedded.Info.FlashArchitecture">
+            <summary>  
+            Flash Architecture
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.Hardware_state_type_enum.HARDWARE_STATE_EVT">
+            <summary>
+             Engineering Validation Test
+            </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.Hardware_state_type_enum.HARDWARE_STATE_DVT">
+            <summary>
+              Design Validation Test
+            </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.Hardware_state_type_enum.HARDWARE_STATE_MVT">
+            <summary>
+             Manufacturing Validation Test
+            </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.Hardware_state_type_enum.HARDWARE_STATE_MP">
+            <summary>
+             Mass Production
+            </summary> 
+        </member>
+        <member name="T:HSM.Embedded.Info.TD_RamAllocationStatus">
+             <summary>
+            OAL RAMFMD Configuration data structures
+            Common structure among all devices, do not alter
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.version">
+            <summary>  
+            LCD0
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.displayModel">
+            <summary>  
+            LCD_DISPLAY types 
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.eolPixelClkWait">
+            <summary>  
+            end of line pixel clock wait: 0x00-0xFF
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.pixelClkDiv">
+            <summary>  
+            Pixel Clock Divisor: 0x00-0xFF
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.acBiasFreq">
+            <summary>  
+             A/C Bias Pin Frequency
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.lcdDisplayParameters.extra">
+            <summary>  
+             Extra entries
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.wVersion">
+            <summary>  
+            Must be set to 1. 
+            Required. 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.szProcessCore">
+            <summary>  
+            Name of the microprocessor core (for example, MIPS or ARM). 
+            Not required. 
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.wCoreRevision">
+            <summary>  
+            Revision number of the microprocessor core.  
+            Not required. 
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.szProcessorName">
+            <summary>  
+            Set to the actual microprocessor name, for example, R4111. 
+            Not a required parameter. 
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.wProcessorRevision">
+            <summary>  
+            Microprocessor revision number.  
+            Not required.  
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.szVendor">
+            <summary>  
+            Set to the name of the microprocessor vendor. 
+            Not Required. 
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.dwInstructionSet">
+            <summary>  
+            Required. 
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.SYS_PROCESSOR_INFO.dwClockSpeed">
+            <summary>  
+            Maximum clock speed of the CPU. 
+            Not Required. 
+             </summary>   
+        </member>
+        <member name="T:HSM.Embedded.Info.LcdDisplayType">
+            <summary>  
+            LCD display type
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_NONE">
+            <summary>  
+            LCD display type is unknown
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_SAMSUNG">
+            <summary>  
+            LCD display type is 7400
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_DATA_IMAGE">
+            <summary>  
+            LCD display type is 7400
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_NANYA_7400">
+            <summary>  
+            LCD display type is 7400 Monochrome
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_SHARP">
+            <summary>  
+            LCD display type is D9500, D7850, D9900
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_NANYA_9500">
+            <summary>  
+            LCD display type is 9500 Monochrome
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_CASIO">
+            <summary>  
+            LCD display type is D9700, D10K VGA
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_TOPPOLY">
+            <summary>  
+            LCD display type is 7600
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TOPOLY_6100">
+            <summary>  
+            LCD display type is 6100
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TRULY_6100">
+            <summary>  
+            LCD display type is 6100
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TOPOLY_D6100">
+            <summary>  
+            LCD display type is D6100
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TRULY_D6100">
+            <summary>  
+            LCD display type is D6100
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TOPOLY_D6500">
+            <summary>  
+            LCD display type is D6500
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_LG_D6500">
+            <summary>  
+            LCD display type is D6500
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TRULY_D6500">
+            <summary>  
+            LCD display type is D6500
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_FINETECH_D6500">
+            <summary>  
+            LCD display type is D6500
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_ITUS_D6100">
+            <summary>  
+            LCD display type is D6100
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_PDS_D6100">
+            <summary>  
+            LCD display type is D6100
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_D7100">
+            <summary>  
+            LCD display type is D7100
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_DISPLAY_ORTUS_BLACK">
+            <summary>  
+            LCD display type is D70e
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TRULY_MODELO">
+            <summary>
+            LCD display type is MODELO
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LcdDisplayType.LCD_TRULY_D60S">
+            <summary>
+            LCD display type is D60S
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.size">
+            <summary>  
+            Size of this data structure, indicates revision
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.type">
+            <summary>  
+            Scanner/Imager type; IT4000, IT4100, IT4300, etc 
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.rotation">
+            <summary>  
+            set non-zero if imager rotated 180 degrees 
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.xpixels">
+            <summary>  
+            imager x resolution, pixels
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.ypixels">
+            <summary>  
+            imager y resolution, pixels
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.aimerxoff">
+            <summary>  
+            aimer x offset in pixels from center of image
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.aimeryoff">
+            <summary>  
+            aimer y offset in pixels from center of image
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.ydepth">
+            <summary>  
+            depth of field in 1000th of inch is measured 
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.IMAGER_INFO.EngineIDLow">
+            <summary>  
+            Reserved on non N56xx units
+             </summary> 
+            
+        </member>
+        <member name="T:HSM.Embedded.Info.DEVICE_RESET_REASON">
+            <summary>  
+            Reset type
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.DEVICE_RESET_REASON.RESET_REASON_FACTORY">
+            <summary>  
+            Factory reset
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.DEVICE_RESET_REASON.RESET_REASON_HARD">
+            <summary>  
+            Hard reset
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.DEVICE_RESET_REASON.RESET_REASON_SOFT">
+            <summary>  
+            Soft reset
+             </summary>  
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_OPMODE">
+            <summary>  
+            Operational modes for radios.  GSM and 802.11b are mutually exclusive.
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_NONE">
+            <summary>  
+            All radios off
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_BLUETOOTH">
+            <summary>  
+             Bluetooth
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_80211B">
+            <summary>  
+             802.11b
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_80211B_BT">
+            <summary>  
+              802.11b and Bluetooth
+             </summary>   
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_GSM">
+            <summary>  
+              GSM/GPRS
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_GSM_BT">
+            <summary>  
+             GSM/GPRS and Bluetooth
+             </summary> 
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_GSM_WIFI">
+            <summary>  
+             GSM and 802.11 ,not allowed on 7900GSM, okay on 7600, 9700 and 9900
+             </summary>  
+            
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_OPMODE.RADIO_OPMODE_GSM_BT_WIFI">
+            <summary>  
+             GSM, 802.11 and BlueTooth,not allowed on 7900GSM, okay on 7600, 9700,9900
+             </summary>  
+            
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE">
+            <summary>  
+             Radio hardware types of bluetooth
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_NONE">
+            <summary>  
+             No Bluetooth radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_SOCKET">
+            <summary>  
+             Socket BT module used in 9500,7900
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_PHILIPS_BGB203">
+            <summary>  
+             Philips BGB203 Bluetooth module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_CSR_BlueCore4ROM">
+            <summary>  
+             CSR Bluetooth module
+             </summary> 
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_USI_SD8688">
+            <summary>  
+             USI Bluetooth module
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_TI_1273">
+            <summary>  
+             TI 1273 WLAN/BT module.
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_WISTRON">
+            <summary>  
+             Jorjin WLAN/BT a/b/g/n module (TI1273 chipset)
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_BLUETOOTH_HARDWARE_TYPE.RADIO_BLUETOOTH_BROADCOM4329">
+            <summary>  
+             Broadcom 4329 WLAN/BT module.
+             </summary> 
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE">
+            <summary>  
+             Radio hardware types of wifi
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_NONE">
+            <summary>  
+             No Wifi radio present
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_SYCHIP_6065_CF">
+            <summary>  
+             SyChip 6065 Compact Flash Module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_PHILIPS_BGW203_SPI">
+            <summary>  
+             Philips BGW203 802.11b Module
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_USI_SD8686_SDIO">
+            <summary>  
+             USI SDIO 802.11g radio
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_USI_SD8686_SPI">
+            <summary>  
+             USI SPI 802.11g radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_SEMCO_SWL_2460">
+            <summary>  
+             SEMCO WiFi radio
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_USI_SD8688_SPI">
+            <summary>  
+             USI SPI 802.11a/b/g radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_TI_1273">
+            <summary>  
+             TI 1273 WLAN/BT a/b/g/n module.
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WIFI_HARDWARE_TYPE.RADIO_WIFI_BCM_4329">
+            <summary>  
+             Broadcom 4329 WLAN/BT b/g/n module
+             </summary>  
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE">
+            <summary>  
+             Radio hardware types of WWAN
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_WWAN_NONE">
+            <summary>  
+             No WWAN radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_SIEMENS_MC45">
+            <summary>  
+             9500,7900 Siemens MC-45 GSM module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_SIEMENS_MC46">
+            <summary>  
+             Siemens MC-46 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_SIEMENS_MC75">
+            <summary>  
+             Siemens MC-75 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_CINTERION_HC25">
+            <summary>  
+             Cinterion HC-25 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_CINTERION_PH8">
+            <summary>  
+             Cinterion PH8 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GOBI_2000">
+            <summary>  
+             Gobi 2000 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GOBI_3000">
+            <summary>  
+             Gobi 3000 module
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_WISTRON">
+            <summary>  
+             Sierra 8795v
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_CDMA_WISTRON">
+            <summary>  
+             Sierra 5728v
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_CDMA_5728v">
+            <summary>  
+             Sierra 5728v
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_CDMA_GSM_SL9090">
+            <summary>  
+             Sierra SL9090 Dolphin 70e
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_WWAN_HARDWARE_TYPE.RADIO_GSM_SL8092">
+            <summary>  
+             Sierra SL8092 Dolphin 70e
+             </summary>  
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE">
+            <summary>  
+             Radio hardware types of  GPS
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_NONE">
+            <summary>  
+             No GPS radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_NMEA">
+            <summary>  
+             NMEA mode only GPS (Generic)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_FASTRAX_UP300">
+            <summary>  
+             Fastrax uPatch300 (D9900)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_UBLOX_NEO_5Q">
+            <summary>  
+             uBlox 5 series (D9700)
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_UBLOX_G5000">
+            <summary>  
+              UBlox G5000
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_UBLOX_G6000">
+            <summary>  
+             UBlox G6000
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_WISTRON">
+            <summary>  
+             UBlox G6010
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_SIERRA_BLACK">
+            <summary>  
+             Sierra SL9090 or SL8092 Dolphin 70e
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_GPS_HARDWARE_TYPE.RADIO_GPS_CINTERION_PH8">
+            <summary>
+            Cinterion PH8 series
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.RADIO_NFC_HARDWARE_TYPE">
+            <summary>  
+             Radio hardware types of  NFC
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_NFC_HARDWARE_TYPE.RADIO_NFC_NONE">
+            <summary>  
+             No NFC radio
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.RADIO_NFC_HARDWARE_TYPE.RADIO_NFC_BLACK">
+            <summary>  
+             NFC for Dolphin 70e
+             </summary>  
+        </member>
+        <member name="T:HSM.Embedded.Info.KeyboardType">
+            <summary>  
+             Key board Type enumeration
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE_NONE">
+            <summary>  
+            Key board Type is NULL
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE43_D7400D9500">
+            <summary>  
+             (7400,9500)  56-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE56_D7400D9500">
+            <summary>  
+            (7400,9500) 35-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE35_D7400D9500">
+            <summary>  
+            (7400) 56-key calculator style keyboard
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE56_D7400">
+            <summary>  
+            (7900) 25-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE25_D7900">
+            <summary>  
+            (7900) 25-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE36_D7900">
+            <summary>  
+            (7900) 36-key Alpha Keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE24_D7850">
+            <summary>  
+            (7850) 24-key calculator style keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE38_D7850">
+            <summary>  
+            (7850) 38-key Alpha keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE43_D9900">
+            <summary>  
+            (9900) 43-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE56_D9900">
+            <summary>  
+             (9900) 56-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE35_D9900">
+            <summary>  
+             (9900) 35-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE55_D9900">
+            <summary>  
+             (9900) 55-key calculator style keyboard (reserved)
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE29_D7600">
+            <summary>  
+             (7600) 29-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE38_D7600">
+            <summary>  
+             (7600) 38-Key Alpha keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEQWERTY_D9700">
+            <summary>  
+             (9700) QWERTY-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPENUMERIC_D9700">
+            <summary>  
+             (9700) Numeric-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE28_D6100">
+            <summary>  
+             (6100) Numeric-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE28_D6500">
+            <summary>  
+            (6500) Numeric 28-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE52_D6500">
+            <summary>  
+             (6500) Alpha-Numeric 52-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE55_D10K">
+            <summary>  
+             (D10K) 55-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE34_D10K">
+            <summary>  
+             (D10K) 34-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE43_D10K">
+            <summary>  
+             (D10K) 43-key keyboard
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE_UPS_D10K">
+            <summary>  
+             (D10K) UPS keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE46_D7800">
+            <summary>  
+             (7800) 46-key (Alpha-Numeric) keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE30_D7800">
+            <summary>  
+             (7800) 30-key (Numeric) keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEQWERTY_D7100">
+            <summary>  
+             (7100) QWERTY-key keyboard
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEQWERTZ_D7100">
+            <summary>  
+            (7100) QWERTZ-key keyboard
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEAZERTY_D7100">
+            <summary>  
+              (7100) AZERTY-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEPHONE_D7100">
+            <summary>  
+             (7100) PHONE-key keyboard
+             </summary>   
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPECALC_D7100">
+            <summary>  
+             (7100) CALCULATOR-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEQWERTZ_D7800">
+            <summary>  
+             (7800) QWERTZ-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPEAZERTY_D7800">
+            <summary>  
+             (7800) AZERTY-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPECALC_D7800">
+            <summary>  
+             (7800) CALCULATOR-key keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE_BLACK">
+            <summary>  
+             (BLACK) only one keyboard
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE_PACIFICO">
+            <summary>  
+             (PACIFICO) only one keyboard for PACIFICO
+             </summary>  
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE32_MODELO">
+            <summary>
+            (MODELO) 28-key (Numeric) keyboard
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE55_MODELO">
+            <summary>
+            (MODELO) 52-key (Alpha) keyboard
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE46_D60S">
+            <summary>
+            (D60S) 46-key (Alpha-Numeric) keyboard
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.KeyboardType.KEYBOARDTYPE30_D60S">
+            <summary>
+            (D60S) 30-key (Numeric) keyboard
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.LedState">
+            <summary>
+            State of the LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedState.Off">
+            <summary>
+            LED off state.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedState.On">
+            <summary>
+            LED on state.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedState.Blink">
+            <summary>
+            LED blink state.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.LedSelect">
+            <summary>
+            Enumeration of the available states of the LED's.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.RightRed">
+            <summary>
+            Right right LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.RightGreen">
+            <summary>
+            Right green LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.LeftRed">
+            <summary>
+            Left red LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.LeftGreen">
+            <summary>
+            Left green LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.RightOrange">
+            <summary>
+            Right orange LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.LeftOrange">
+            <summary>
+            Left orange LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Info.LedSelect.LeftBlue">
+            <summary>
+            Left bule LED.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Info.EventCallBack">
+            <summary>  
+             Can reference a user-defined method which may be used to obtain the notification information and in the function of RegisterEventListener.
+             </summary>  
+        </member>
+        <member name="T:HSM.Embedded.Hardware.DeviceHardwareAssembly">
+            <summary>
+            The DeviceHardware class contains properties and methods that interface with the device hardware.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.DeviceHardwareAssembly.Sound">
+            <summary>
+            Public interface to the Sound class.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.DeviceHardwareAssembly.Device">
+            <summary>
+            Public interface to the Device class.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.DeviceHardwareAssembly.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.DeviceHardwareAssembly.Dispose">
+            <summary>
+            Releases all DeviceHardware resources.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.DeviceHardwareAssembly.Dispose(System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="disposing"></param>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Imager">
+            <summary>
+            The Imager class exposes the properties of the imager on the device.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.BitsPerPixel">
+            <summary>
+            Returns the Bits Per Pixel resolution of the Imager.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.Columns">
+            <summary>
+            Returns the Columns of the Imager.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.EngineId">
+            <summary>
+            Returns the ID of the Scan Engine. 
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.EngineType">
+            <summary>
+            Returns the type of Scan engine. 
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.Rotation">
+            <summary>
+            Returns the rotation of the imager.
+            </summary>
+        </member>
+        <member name="P:HSM.Embedded.Hardware.Imager.Rows">
+            <summary>
+            Returns the rows of the imager.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Imager.EngineIds">
+            <summary>
+            Device Engine IDs
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.Unknown">
+            <summary>
+            Engine is Unknown.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.None">
+            <summary>
+            No engine available.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.Imager4200">
+            <summary>
+            Honeywell 4200 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.LaserSe1200">
+            <summary>
+            Symbol SE 1200 laser.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.LaserSe1223">
+            <summary>
+            Symbol SE 1223 laser.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt4000">
+            <summary>
+            Honeywell 4000 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt4100">
+            <summary>
+            Honeywell 4100 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt4300">
+            <summary>
+            Honeywell 4300 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt5100">
+            <summary>
+            Honeywell 5100 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt5300">
+            <summary>
+            Honeywell 5300 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt5000Vga">
+            <summary>
+            Honeywell 5000 VGA Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerIt5000VgaPsoc">
+            <summary>
+            Honeywell 5000 VGA/PSOC Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerN5603">
+            <summary>
+            Honeywell 5603 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.ImagerN5600">
+            <summary>
+            Honeywell 5600 Imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineIds.LaserN4313">
+            <summary>
+            Honeywell 4313 Laser.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Imager.EngineTypes">
+            <summary>
+            Device Engine Types
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineTypes.Unknown">
+            <summary>
+            Engine is unknown.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineTypes.None">
+            <summary>
+            No engine available.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineTypes.Imager">
+            <summary>
+            Engine is a imager.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.EngineTypes.Laser">
+            <summary>
+            Engine is a laser.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Imager.ExposureModes">
+            <summary>
+            Exposure Modes.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureModes.Fixed">
+            <summary>
+            Fixed Exposure.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureModes.HHP">
+            <summary>
+            Honeywell Exposure.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Imager.ExposureSettings">
+            <summary>
+            Exposure Settings.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.ExposureMethod">
+            <summary>
+            Exposure Method.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.TargetValue">
+            <summary>
+            Target Value.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.TargetPercentile">
+            <summary>
+            Target Percentile.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.TargetAcceptGap">
+            <summary>
+            Target Accept Gap.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.MaximumExposure">
+            <summary>
+            Maximum Exposure.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.MaximumGain">
+            <summary>
+            Minimum Gain.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.ConformImage">
+            <summary>
+            Conform Image.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.ConformAttempts">
+            <summary>
+            Conform Attemps.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.FixedExposure">
+            <summary>
+            Fixed Exposure.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.FixedGain">
+            <summary>
+            Fixed Gain.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Imager.ExposureSettings.FixedFrameRate">
+            <summary>
+            Fixed Frame Rate.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Device">
+            <summary>
+            The Device class exposes the hardware of the device.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.Imager">
+            <summary>
+            Public interface to the Imager class.
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Device.AimerOn(System.Boolean)">
+            <summary>
+            Enable or disable the aimer.
+            </summary>
+            <param name="State">Specifies the desired aimer state to be set.</param>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Device.IlluminationOn(System.Boolean)">
+            <summary>
+            Enable or disable illumination.
+            </summary>
+            <param name="State">Specifies the desired illumination state to be set.</param>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Device.SetVibration(System.Int32)">
+            <summary>
+            Enable or disable the vibrator.
+            </summary>
+            <param name="iMilliseconds">Specifies to vibrate or not; if >0, gives the timeout for vibration.</param>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Device.SetLEDs(HSM.Embedded.Hardware.Device.LedSelect,HSM.Embedded.Hardware.Device.LedState,System.Int32,System.Int32)">
+            <summary>
+            Sets the state of the specified LED.
+            </summary>
+            <param name="nLed">The LED being addressed.
+            </param>
+            <param name="state">
+            The state to be applied to the specified LED.</param>
+            <param name="BlinkRateOnTime">
+            On time of the blink cycle, in microseconds.
+            </param>
+            <param name="BlinkRateOffTime">
+            Off time of the blink cycle, in microseconds.
+            </param>
+            <returns>
+            The status of the result. 0 = successful.
+            </returns>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Device.getLEDs(HSM.Embedded.Hardware.Device.LedSelect)">
+            <summary>
+            get the state of the specified LED.
+            </summary>
+            <param name="nLed">The LED being addressed.
+            </param>
+            <returns>
+            The state to be applied to the specified LED.
+            </returns>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Device.LedState">
+            <summary>
+            State of the LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedState.Off">
+            <summary>
+            LED off state.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedState.On">
+            <summary>
+            LED on state.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedState.Blink">
+            <summary>
+            LED blink state.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Device.LedSelect">
+            <summary>
+            Enumeration of the available states of the LED's.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.RightRed">
+            <summary>
+            Right right LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.RightGreen">
+            <summary>
+            Right green LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.LeftRed">
+            <summary>
+            Left red LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.LeftGreen">
+            <summary>
+            Left green LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.RightOrange">
+            <summary>
+            Right orange LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.LeftOrange">
+            <summary>
+            Left orange LED.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Device.LedSelect.LeftBlue">
+            <summary>
+            Left bule LED.
+            </summary>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Sound">
+            <summary>
+            The Sound class exposes the ability to invoke audible sounds on the device.  
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Sound.Finalize">
+            <summary>
+            Finalizer
+            </summary>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Sound.Play(HSM.Embedded.Hardware.Sound.SoundTypes)">
+            <summary>
+            Plays a sound (automatic speaker or beeper detection).
+            </summary>
+            <param name="Type">Sound type to be played.</param>
+        </member>
+        <member name="M:HSM.Embedded.Hardware.Sound.Play(System.String)">
+            <summary>
+            Plays a sound file from an external file.
+            </summary>
+            <param name="SoundFile">The path of the sound file.</param>
+        </member>
+        <member name="T:HSM.Embedded.Hardware.Sound.SoundTypes">
+            <summary>
+            Embbeded sound bytes
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Sound.SoundTypes.Failure">
+            <summary>
+            Sound associated with failure.
+            </summary>
+        </member>
+        <member name="F:HSM.Embedded.Hardware.Sound.SoundTypes.Success">
+            <summary>
+            Sound associated with success.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.exe
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\PickToLightClient.pdb
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.Decoding.DecodeAssembly.dll
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.Hardware.DeviceHardwareAssembly.dll
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.WirelessAssembly.dll
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\System.Data.SqlClient.dll
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.Hardware.DeviceHardwareAssembly.xml
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.Decoding.DecodeAssembly.xml
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\bin\Debug\HSM.Embedded.WirelessAssembly.xml
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\SNA.Mobile.PickToLightClient.ErrorDialog.resources
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\SNA.Mobile.PickToLightClient.Login.resources
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\SNA.Mobile.PickToLightClient.Main.resources
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\SNA.Mobile.PickToLightClient.Properties.Resources.resources
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.csproj.GenerateResource.Cache
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.exe
+C:\Development\Mobile\Honeywell Dolphin\SNA.Mobile.PickToLightClient\PickToLightClient\obj\Debug\PickToLightClient.pdb
