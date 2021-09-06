@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PickToLightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="APIResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Exception" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Code" Type="int" />
+    <Property Name="ConfirmationNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="ConfirmedOrderNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="ConfirmedOrderSupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="ConfirmedOrderPlant" Type="nvarchar" MaxLength="5" />
+    <Property Name="ConfirmedOrderDockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="ConfirmedTrailerSupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="ConfirmedTrailerRoute" Type="nvarchar" MaxLength="7" />
+    <Property Name="ConfirmedTrailerRun" Type="nvarchar" MaxLength="2" />
+    <Property Name="ConfirmedTrailerNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="ConfirmedTrailerPickUp" Type="datetime" />
+    <Property Name="HTTPCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="HTTPMessage" Type="nvarchar" MaxLength="100" />
+    <Property Name="HTTPMoreInformation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="APIResponseMessage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APIResponseID" Type="int" Nullable="false" />
+    <Property Name="KeyObject" Type="nvarchar" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AppSettings">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Source" Type="nvarchar" MaxLength="100" />
+    <Property Name="ThreadName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ThreadID" Type="int" />
+    <Property Name="Data" Type="nvarchar" MaxLength="500" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="NAMC_TRPT_CrossRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAMCDestination" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="TRPT" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="PullTrackerReport" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OWKSupplierText">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="KanbanNumber" Type="nvarchar" MaxLength="4" />
+    <Property Name="PartNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="LotSize" Type="nvarchar" MaxLength="5" />
+    <Property Name="SupplierTextLine1" Type="nvarchar" MaxLength="15" />
+    <Property Name="SupplierTextLine2" Type="nvarchar" MaxLength="15" />
+    <Property Name="LastUpdatedOnTSCom" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ScanInternalKanban">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InternalPartNumber" Type="nvarchar" MaxLength="250" />
+    <Property Name="KanbanNumber" Type="nvarchar" MaxLength="4" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceIdentifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="Scanned" Type="datetime" />
+    <Property Name="ScannedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ScanManifest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="NAMC" Type="nvarchar" MaxLength="5" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="MainRoute" Type="nvarchar" MaxLength="9" />
+    <Property Name="SupplierShipDock" Type="nvarchar" MaxLength="3" />
+    <Property Name="PalletizationCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="OrderSequence" Type="nvarchar" MaxLength="12" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceIdentifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="Scanned" Type="datetime" />
+    <Property Name="ScannedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Decoded" Type="bit" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ScanOWK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="250" />
+    <Property Name="SupplierInformation" Type="nvarchar" MaxLength="30" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="KanbanNumber" Type="nvarchar" MaxLength="4" />
+    <Property Name="PartNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="LineSideAddress" Type="nvarchar" MaxLength="10" />
+    <Property Name="StoreAddress" Type="nvarchar" MaxLength="10" />
+    <Property Name="LotSize" Type="nvarchar" MaxLength="5" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="20" />
+    <Property Name="MainRoute" Type="nvarchar" MaxLength="9" />
+    <Property Name="SubRoute" Type="nvarchar" MaxLength="9" />
+    <Property Name="UnloadDate" Type="nvarchar" MaxLength="8" />
+    <Property Name="ShipDate" Type="nvarchar" MaxLength="8" />
+    <Property Name="ShipTime" Type="nvarchar" MaxLength="8" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="BoxNumber" Type="nvarchar" MaxLength="4" />
+    <Property Name="BoxTotal" Type="nvarchar" MaxLength="4" />
+    <Property Name="NAMCDestination" Type="nvarchar" MaxLength="5" />
+    <Property Name="InternalKanbanKey" Type="nvarchar" MaxLength="17" />
+    <Property Name="LabelLocationIndicator" Type="nvarchar" MaxLength="2" />
+    <Property Name="NAMCData1" Type="nvarchar" MaxLength="10" />
+    <Property Name="NAMCData2" Type="nvarchar" MaxLength="2" />
+    <Property Name="PalletizationCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="NAMCData3" Type="nvarchar" MaxLength="10" />
+    <Property Name="NAMCData4" Type="nvarchar" MaxLength="2" />
+    <Property Name="Filler" Type="nvarchar" MaxLength="41" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceIdentifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="Scanned" Type="datetime" />
+    <Property Name="ScannedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Decoded" Type="bit" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ScanSkidRfTag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RFid" Type="nvarchar" MaxLength="12" />
+    <Property Name="RFidType" Type="nvarchar" MaxLength="10" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="NAMC" Type="nvarchar" MaxLength="5" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="PalletizationCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="SkidId" Type="nvarchar" MaxLength="3" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceIdentifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="ScannedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ScanUnknown">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="300" />
+    <Property Name="ExpectedScanType" Type="nvarchar" MaxLength="20" />
+    <Property Name="ScanType" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeviceIdentifier" Type="nvarchar" MaxLength="20" />
+    <Property Name="Scanned" Type="datetime" />
+    <Property Name="ScannedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipmentLoadTrailerID" Type="int" Nullable="false" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Plant" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="PickUp" Type="datetime" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadOrderException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipmentLoadOrderID" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="3" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadSkid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipmentLoadOrderID" Type="int" Nullable="false" />
+    <Property Name="SkidId" Type="nvarchar" MaxLength="3" />
+    <Property Name="PalletizationCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadSkidException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipmentLoadSkidID" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="3" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Route" Type="nvarchar" MaxLength="7" />
+    <Property Name="Run" Type="nvarchar" MaxLength="2" />
+    <Property Name="TrailerNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="DropHook" Type="bit" />
+    <Property Name="SealNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="SupplierTeamFirstName" Type="nvarchar" MaxLength="9" />
+    <Property Name="SupplierTeamLastName" Type="nvarchar" MaxLength="12" />
+    <Property Name="LPCode" Type="nvarchar" MaxLength="6" />
+    <Property Name="DriverTeamFirstName" Type="nvarchar" MaxLength="9" />
+    <Property Name="DriverTeamLastName" Type="nvarchar" MaxLength="12" />
+    <Property Name="ConfirmationNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailerException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShipmentLoadTrailerID" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="3" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailerResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APIResponseID" Type="int" Nullable="false" />
+    <Property Name="ShipmentLoadTrailerID" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SkidBuildKanban">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkidBuildSkidID" Type="int" Nullable="false" />
+    <Property Name="PartNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="KanbanNumber" Type="nvarchar" MaxLength="4" />
+    <Property Name="QPC" Type="int" />
+    <Property Name="BoxNumber" Type="int" />
+    <Property Name="LineSideAddress" Type="nvarchar" MaxLength="10" />
+    <Property Name="RFId" Type="nvarchar" MaxLength="12" />
+    <Property Name="ManifestNumber" Type="nvarchar" MaxLength="8" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="nvarchar" MaxLength="12" />
+    <Property Name="SupplierCode" Type="nvarchar" MaxLength="5" />
+    <Property Name="Plant" Type="nvarchar" MaxLength="5" />
+    <Property Name="DockCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="ConfirmationNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrderException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkidBuildOrderID" Type="int" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="3" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrderResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="APIResponseID" Type="int" Nullable="false" />
+    <Property Name="SkidBuildOrderID" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SkidBuildSkid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SkidBuildOrderID" Type="int" Nullable="false" />
+    <Property Name="SkidId" Type="nvarchar" MaxLength="3" />
+    <Property Name="PalletizationCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ToyotaShipments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAMC" Type="varchar" MaxLength="17" Nullable="false" />
+    <Property Name="SUBROUTE" Type="varchar" MaxLength="50" />
+    <Property Name="SHIPDATE" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SHIPTIME" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+    <Property Name="SNAPARTNUM" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CUSTPARTNUM" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ORDERNUM" Type="varchar" MaxLength="50" />
+    <Property Name="DOCKCODE" Type="varchar" MaxLength="17" Nullable="false" />
+    <Property Name="ORDERQTY" Type="numeric" Precision="8" Scale="0" Nullable="false" />
+    <Property Name="PANQTY" Type="decimal" Precision="15" Scale="5" Nullable="false" />
+    <Property Name="PANSREQ" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Revised" Type="bit" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="50" />
+    <Property Name="Completed" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="Modified" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_APIResponseMessage_APIResponse">
+    <End Role="APIResponse" Type="Self.APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="APIResponseMessage" Type="Self.APIResponseMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APIResponseMessage">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadOrder_ShipmentLoadTrailer">
+    <End Role="ShipmentLoadTrailer" Type="Self.ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadOrder" Type="Self.ShipmentLoadOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadOrder">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadOrderException_ShipmentLoadOrder">
+    <End Role="ShipmentLoadOrder" Type="Self.ShipmentLoadOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadOrderException" Type="Self.ShipmentLoadOrderException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadOrderException">
+        <PropertyRef Name="ShipmentLoadOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadSkid_ShipmentLoadOrder">
+    <End Role="ShipmentLoadOrder" Type="Self.ShipmentLoadOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadSkid" Type="Self.ShipmentLoadSkid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadSkid">
+        <PropertyRef Name="ShipmentLoadOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadSkidException_ShipmentLoadSkid">
+    <End Role="ShipmentLoadSkid" Type="Self.ShipmentLoadSkid" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadSkidException" Type="Self.ShipmentLoadSkidException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadSkid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadSkidException">
+        <PropertyRef Name="ShipmentLoadSkidID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadTrailerException_ShipmentLoadTrailer">
+    <End Role="ShipmentLoadTrailer" Type="Self.ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadTrailerException" Type="Self.ShipmentLoadTrailerException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerException">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadTrailerResponse_APIResponse">
+    <End Role="APIResponse" Type="Self.APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadTrailerResponse" Type="Self.ShipmentLoadTrailerResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerResponse">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer">
+    <End Role="ShipmentLoadTrailer" Type="Self.ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ShipmentLoadTrailerResponse" Type="Self.ShipmentLoadTrailerResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerResponse">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildKanban_SkidBuildSkid">
+    <End Role="SkidBuildSkid" Type="Self.SkidBuildSkid" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SkidBuildKanban" Type="Self.SkidBuildKanban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildSkid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildKanban">
+        <PropertyRef Name="SkidBuildSkidID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderException_SkidBuildOrder">
+    <End Role="SkidBuildOrder" Type="Self.SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SkidBuildOrderException" Type="Self.SkidBuildOrderException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderException">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderResponse_APIResponse">
+    <End Role="APIResponse" Type="Self.APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SkidBuildOrderResponse" Type="Self.SkidBuildOrderResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderResponse">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderResponse_SkidBuildOrder">
+    <End Role="SkidBuildOrder" Type="Self.SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SkidBuildOrderResponse" Type="Self.SkidBuildOrderResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderResponse">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildSkid_SkidBuildOrder">
+    <End Role="SkidBuildOrder" Type="Self.SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SkidBuildSkid" Type="Self.SkidBuildSkid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildSkid">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PickToLightModelStoreContainer">
+    <EntitySet Name="APIResponse" EntityType="Self.APIResponse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APIResponseMessage" EntityType="Self.APIResponseMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NAMC_TRPT_CrossRef" EntityType="Self.NAMC_TRPT_CrossRef" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OWKSupplierText" EntityType="Self.OWKSupplierText" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScanInternalKanban" EntityType="Self.ScanInternalKanban" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScanManifest" EntityType="Self.ScanManifest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScanOWK" EntityType="Self.ScanOWK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScanSkidRfTag" EntityType="Self.ScanSkidRfTag" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScanUnknown" EntityType="Self.ScanUnknown" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadOrder" EntityType="Self.ShipmentLoadOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadOrderException" EntityType="Self.ShipmentLoadOrderException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadSkid" EntityType="Self.ShipmentLoadSkid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadSkidException" EntityType="Self.ShipmentLoadSkidException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadTrailer" EntityType="Self.ShipmentLoadTrailer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadTrailerException" EntityType="Self.ShipmentLoadTrailerException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipmentLoadTrailerResponse" EntityType="Self.ShipmentLoadTrailerResponse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkidBuildKanban" EntityType="Self.SkidBuildKanban" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkidBuildOrder" EntityType="Self.SkidBuildOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkidBuildOrderException" EntityType="Self.SkidBuildOrderException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkidBuildOrderResponse" EntityType="Self.SkidBuildOrderResponse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SkidBuildSkid" EntityType="Self.SkidBuildSkid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToyotaShipments" EntityType="Self.ToyotaShipments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_APIResponseMessage_APIResponse" Association="Self.FK_APIResponseMessage_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponse" />
+      <End Role="APIResponseMessage" EntitySet="APIResponseMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadOrder_ShipmentLoadTrailer" Association="Self.FK_ShipmentLoadOrder_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailer" />
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadOrderException_ShipmentLoadOrder" Association="Self.FK_ShipmentLoadOrderException_ShipmentLoadOrder">
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrder" />
+      <End Role="ShipmentLoadOrderException" EntitySet="ShipmentLoadOrderException" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadSkid_ShipmentLoadOrder" Association="Self.FK_ShipmentLoadSkid_ShipmentLoadOrder">
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrder" />
+      <End Role="ShipmentLoadSkid" EntitySet="ShipmentLoadSkid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadSkidException_ShipmentLoadSkid" Association="Self.FK_ShipmentLoadSkidException_ShipmentLoadSkid">
+      <End Role="ShipmentLoadSkid" EntitySet="ShipmentLoadSkid" />
+      <End Role="ShipmentLoadSkidException" EntitySet="ShipmentLoadSkidException" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadTrailerException_ShipmentLoadTrailer" Association="Self.FK_ShipmentLoadTrailerException_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailer" />
+      <End Role="ShipmentLoadTrailerException" EntitySet="ShipmentLoadTrailerException" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadTrailerResponse_APIResponse" Association="Self.FK_ShipmentLoadTrailerResponse_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponse" />
+      <End Role="ShipmentLoadTrailerResponse" EntitySet="ShipmentLoadTrailerResponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer" Association="Self.FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailer" />
+      <End Role="ShipmentLoadTrailerResponse" EntitySet="ShipmentLoadTrailerResponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildKanban_SkidBuildSkid" Association="Self.FK_SkidBuildKanban_SkidBuildSkid">
+      <End Role="SkidBuildSkid" EntitySet="SkidBuildSkid" />
+      <End Role="SkidBuildKanban" EntitySet="SkidBuildKanban" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderException_SkidBuildOrder" Association="Self.FK_SkidBuildOrderException_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrder" />
+      <End Role="SkidBuildOrderException" EntitySet="SkidBuildOrderException" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderResponse_APIResponse" Association="Self.FK_SkidBuildOrderResponse_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponse" />
+      <End Role="SkidBuildOrderResponse" EntitySet="SkidBuildOrderResponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderResponse_SkidBuildOrder" Association="Self.FK_SkidBuildOrderResponse_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrder" />
+      <End Role="SkidBuildOrderResponse" EntitySet="SkidBuildOrderResponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildSkid_SkidBuildOrder" Association="Self.FK_SkidBuildSkid_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrder" />
+      <End Role="SkidBuildSkid" EntitySet="SkidBuildSkid" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

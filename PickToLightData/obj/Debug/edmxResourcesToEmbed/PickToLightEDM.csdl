@@ -1,0 +1,691 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PickToLightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ScanOWK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barcode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierInformation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="KanbanNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="PartNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="LineSideAddress" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="StoreAddress" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="LotSize" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MainRoute" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="SubRoute" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="UnloadDate" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="ShipDate" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="ShipTime" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="BoxNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="BoxTotal" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="NAMCDestination" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="InternalKanbanKey" Type="String" MaxLength="17" FixedLength="false" Unicode="true" />
+    <Property Name="LabelLocationIndicator" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="NAMCData1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NAMCData2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="PalletizationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="NAMCData3" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NAMCData4" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Filler" Type="String" MaxLength="41" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceIdentifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Scanned" Type="DateTime" Precision="3" />
+    <Property Name="ScannedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Decoded" Type="Boolean" Nullable="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="PickToLightEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ScanOWKs" EntityType="Self.ScanOWK" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Logs" EntityType="PickToLightModel.Log" />
+    <EntitySet Name="ScanManifests" EntityType="PickToLightModel.ScanManifest" />
+    <EntitySet Name="NAMC_TRPT_CrossRef" EntityType="PickToLightModel.NAMC_TRPT_CrossRef" />
+    <EntitySet Name="OWKSupplierTexts" EntityType="PickToLightModel.OWKSupplierText" />
+    <EntitySet Name="ScanInternalKanbans" EntityType="PickToLightModel.ScanInternalKanban" />
+    <EntitySet Name="ScanUnknowns" EntityType="PickToLightModel.ScanUnknown" />
+    <EntitySet Name="ToyotaShipments" EntityType="PickToLightModel.ToyotaShipment" />
+    <EntitySet Name="AppSettings" EntityType="PickToLightModel.AppSetting" />
+    <EntitySet Name="APIResponses" EntityType="PickToLightModel.APIResponse" />
+    <EntitySet Name="APIResponseMessages" EntityType="PickToLightModel.APIResponseMessage" />
+    <EntitySet Name="SkidBuildKanbans" EntityType="PickToLightModel.SkidBuildKanban" />
+    <EntitySet Name="SkidBuildOrders" EntityType="PickToLightModel.SkidBuildOrder" />
+    <EntitySet Name="SkidBuildOrderExceptions" EntityType="PickToLightModel.SkidBuildOrderException" />
+    <EntitySet Name="SkidBuildOrderResponses" EntityType="PickToLightModel.SkidBuildOrderResponse" />
+    <EntitySet Name="SkidBuildSkids" EntityType="PickToLightModel.SkidBuildSkid" />
+    <AssociationSet Name="FK_APIResponseMessage_APIResponse" Association="PickToLightModel.FK_APIResponseMessage_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponses" />
+      <End Role="APIResponseMessage" EntitySet="APIResponseMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderResponse_APIResponse" Association="PickToLightModel.FK_SkidBuildOrderResponse_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponses" />
+      <End Role="SkidBuildOrderResponse" EntitySet="SkidBuildOrderResponses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildKanban_SkidBuildSkid" Association="PickToLightModel.FK_SkidBuildKanban_SkidBuildSkid">
+      <End Role="SkidBuildSkid" EntitySet="SkidBuildSkids" />
+      <End Role="SkidBuildKanban" EntitySet="SkidBuildKanbans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderException_SkidBuildOrder" Association="PickToLightModel.FK_SkidBuildOrderException_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrders" />
+      <End Role="SkidBuildOrderException" EntitySet="SkidBuildOrderExceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildOrderResponse_SkidBuildOrder" Association="PickToLightModel.FK_SkidBuildOrderResponse_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrders" />
+      <End Role="SkidBuildOrderResponse" EntitySet="SkidBuildOrderResponses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkidBuildSkid_SkidBuildOrder" Association="PickToLightModel.FK_SkidBuildSkid_SkidBuildOrder">
+      <End Role="SkidBuildOrder" EntitySet="SkidBuildOrders" />
+      <End Role="SkidBuildSkid" EntitySet="SkidBuildSkids" />
+    </AssociationSet>
+    <EntitySet Name="ShipmentLoadOrders" EntityType="PickToLightModel.ShipmentLoadOrder" />
+    <EntitySet Name="ShipmentLoadOrderExceptions" EntityType="PickToLightModel.ShipmentLoadOrderException" />
+    <EntitySet Name="ShipmentLoadSkids" EntityType="PickToLightModel.ShipmentLoadSkid" />
+    <EntitySet Name="ShipmentLoadSkidExceptions" EntityType="PickToLightModel.ShipmentLoadSkidException" />
+    <EntitySet Name="ShipmentLoadTrailers" EntityType="PickToLightModel.ShipmentLoadTrailer" />
+    <EntitySet Name="ShipmentLoadTrailerExceptions" EntityType="PickToLightModel.ShipmentLoadTrailerException" />
+    <EntitySet Name="ShipmentLoadTrailerResponses" EntityType="PickToLightModel.ShipmentLoadTrailerResponse" />
+    <AssociationSet Name="FK_ShipmentLoadTrailerResponse_APIResponse" Association="PickToLightModel.FK_ShipmentLoadTrailerResponse_APIResponse">
+      <End Role="APIResponse" EntitySet="APIResponses" />
+      <End Role="ShipmentLoadTrailerResponse" EntitySet="ShipmentLoadTrailerResponses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadOrder_ShipmentLoadTrailer" Association="PickToLightModel.FK_ShipmentLoadOrder_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailers" />
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadOrderException_ShipmentLoadOrder" Association="PickToLightModel.FK_ShipmentLoadOrderException_ShipmentLoadOrder">
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrders" />
+      <End Role="ShipmentLoadOrderException" EntitySet="ShipmentLoadOrderExceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadSkid_ShipmentLoadOrder" Association="PickToLightModel.FK_ShipmentLoadSkid_ShipmentLoadOrder">
+      <End Role="ShipmentLoadOrder" EntitySet="ShipmentLoadOrders" />
+      <End Role="ShipmentLoadSkid" EntitySet="ShipmentLoadSkids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadSkidException_ShipmentLoadSkid" Association="PickToLightModel.FK_ShipmentLoadSkidException_ShipmentLoadSkid">
+      <End Role="ShipmentLoadSkid" EntitySet="ShipmentLoadSkids" />
+      <End Role="ShipmentLoadSkidException" EntitySet="ShipmentLoadSkidExceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadTrailerException_ShipmentLoadTrailer" Association="PickToLightModel.FK_ShipmentLoadTrailerException_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailers" />
+      <End Role="ShipmentLoadTrailerException" EntitySet="ShipmentLoadTrailerExceptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer" Association="PickToLightModel.FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer">
+      <End Role="ShipmentLoadTrailer" EntitySet="ShipmentLoadTrailers" />
+      <End Role="ShipmentLoadTrailerResponse" EntitySet="ShipmentLoadTrailerResponses" />
+    </AssociationSet>
+    <EntitySet Name="ScanSkidRfTags" EntityType="PickToLightModel.ScanSkidRfTag" />
+  </EntityContainer>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ThreadName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ThreadID" Type="Int32" />
+    <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="ScanManifest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="NAMC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="MainRoute" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierShipDock" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PalletizationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="OrderSequence" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceIdentifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Scanned" Type="DateTime" Precision="3" />
+    <Property Name="ScannedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Decoded" Type="Boolean" Nullable="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NAMC_TRPT_CrossRef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAMCDestination" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="TRPT" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="PullTrackerReport" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OWKSupplierText">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="KanbanNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="PartNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="LotSize" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTextLine1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTextLine2" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedOnTSCom" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ScanInternalKanban">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InternalPartNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KanbanNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceIdentifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Scanned" Type="DateTime" Precision="3" />
+    <Property Name="ScannedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ScanUnknown">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Barcode" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ExpectedScanType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ScanType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceIdentifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Scanned" Type="DateTime" Precision="3" />
+    <Property Name="ScannedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ToyotaShipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAMC" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="SUBROUTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SHIPDATE" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="SHIPTIME" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+    <Property Name="SNAPARTNUM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CUSTPARTNUM" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERNUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOCKCODE" Type="String" Nullable="false" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERQTY" Type="Decimal" Nullable="false" Precision="8" Scale="0" />
+    <Property Name="PANQTY" Type="Decimal" Nullable="false" Precision="15" Scale="5" />
+    <Property Name="PANSREQ" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="Revised" Type="Boolean" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Completed" Type="Boolean" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="APIResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Exception" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="Int32" />
+    <Property Name="ConfirmationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedOrderNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedOrderSupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedOrderPlant" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedOrderDockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedTrailerSupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedTrailerRoute" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedTrailerRun" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedTrailerNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmedTrailerPickUp" Type="DateTime" Precision="3" />
+    <Property Name="HTTPCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="HTTPMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HTTPMoreInformation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="APIResponseMessages" Relationship="PickToLightModel.FK_APIResponseMessage_APIResponse" FromRole="APIResponse" ToRole="APIResponseMessage" />
+    <NavigationProperty Name="SkidBuildOrderResponses" Relationship="PickToLightModel.FK_SkidBuildOrderResponse_APIResponse" FromRole="APIResponse" ToRole="SkidBuildOrderResponse" />
+    <NavigationProperty Name="ShipmentLoadTrailerResponses" Relationship="PickToLightModel.FK_ShipmentLoadTrailerResponse_APIResponse" FromRole="APIResponse" ToRole="ShipmentLoadTrailerResponse" />
+  </EntityType>
+  <EntityType Name="APIResponseMessage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APIResponseID" Type="Int32" Nullable="false" />
+    <Property Name="KeyObject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="APIResponse" Relationship="PickToLightModel.FK_APIResponseMessage_APIResponse" FromRole="APIResponseMessage" ToRole="APIResponse" />
+  </EntityType>
+  <EntityType Name="SkidBuildKanban">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkidBuildSkidID" Type="Int32" Nullable="false" />
+    <Property Name="PartNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="KanbanNumber" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="QPC" Type="Int32" />
+    <Property Name="BoxNumber" Type="Int32" />
+    <Property Name="LineSideAddress" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RFId" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ManifestNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SkidBuildSkid" Relationship="PickToLightModel.FK_SkidBuildKanban_SkidBuildSkid" FromRole="SkidBuildKanban" ToRole="SkidBuildSkid" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Plant" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SkidBuildOrderExceptions" Relationship="PickToLightModel.FK_SkidBuildOrderException_SkidBuildOrder" FromRole="SkidBuildOrder" ToRole="SkidBuildOrderException" />
+    <NavigationProperty Name="SkidBuildOrderResponses" Relationship="PickToLightModel.FK_SkidBuildOrderResponse_SkidBuildOrder" FromRole="SkidBuildOrder" ToRole="SkidBuildOrderResponse" />
+    <NavigationProperty Name="SkidBuildSkids" Relationship="PickToLightModel.FK_SkidBuildSkid_SkidBuildOrder" FromRole="SkidBuildOrder" ToRole="SkidBuildSkid" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrderException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkidBuildOrderID" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SkidBuildOrder" Relationship="PickToLightModel.FK_SkidBuildOrderException_SkidBuildOrder" FromRole="SkidBuildOrderException" ToRole="SkidBuildOrder" />
+  </EntityType>
+  <EntityType Name="SkidBuildOrderResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APIResponseID" Type="Int32" Nullable="false" />
+    <Property Name="SkidBuildOrderID" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="APIResponse" Relationship="PickToLightModel.FK_SkidBuildOrderResponse_APIResponse" FromRole="SkidBuildOrderResponse" ToRole="APIResponse" />
+    <NavigationProperty Name="SkidBuildOrder" Relationship="PickToLightModel.FK_SkidBuildOrderResponse_SkidBuildOrder" FromRole="SkidBuildOrderResponse" ToRole="SkidBuildOrder" />
+  </EntityType>
+  <EntityType Name="SkidBuildSkid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SkidBuildOrderID" Type="Int32" Nullable="false" />
+    <Property Name="SkidId" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PalletizationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SkidBuildKanbans" Relationship="PickToLightModel.FK_SkidBuildKanban_SkidBuildSkid" FromRole="SkidBuildSkid" ToRole="SkidBuildKanban" />
+    <NavigationProperty Name="SkidBuildOrder" Relationship="PickToLightModel.FK_SkidBuildSkid_SkidBuildOrder" FromRole="SkidBuildSkid" ToRole="SkidBuildOrder" />
+  </EntityType>
+  <Association Name="FK_APIResponseMessage_APIResponse">
+    <End Type="PickToLightModel.APIResponse" Role="APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.APIResponseMessage" Role="APIResponseMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="APIResponseMessage">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderResponse_APIResponse">
+    <End Type="PickToLightModel.APIResponse" Role="APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.SkidBuildOrderResponse" Role="SkidBuildOrderResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderResponse">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildKanban_SkidBuildSkid">
+    <End Type="PickToLightModel.SkidBuildSkid" Role="SkidBuildSkid" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.SkidBuildKanban" Role="SkidBuildKanban" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildSkid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildKanban">
+        <PropertyRef Name="SkidBuildSkidID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderException_SkidBuildOrder">
+    <End Type="PickToLightModel.SkidBuildOrder" Role="SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.SkidBuildOrderException" Role="SkidBuildOrderException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderException">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildOrderResponse_SkidBuildOrder">
+    <End Type="PickToLightModel.SkidBuildOrder" Role="SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.SkidBuildOrderResponse" Role="SkidBuildOrderResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildOrderResponse">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkidBuildSkid_SkidBuildOrder">
+    <End Type="PickToLightModel.SkidBuildOrder" Role="SkidBuildOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.SkidBuildSkid" Role="SkidBuildSkid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SkidBuildOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SkidBuildSkid">
+        <PropertyRef Name="SkidBuildOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ShipmentLoadOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentLoadTrailerID" Type="Int32" Nullable="false" />
+    <Property Name="OrderNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Plant" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="PickUp" Type="DateTime" Precision="3" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadTrailer" Relationship="PickToLightModel.FK_ShipmentLoadOrder_ShipmentLoadTrailer" FromRole="ShipmentLoadOrder" ToRole="ShipmentLoadTrailer" />
+    <NavigationProperty Name="ShipmentLoadOrderExceptions" Relationship="PickToLightModel.FK_ShipmentLoadOrderException_ShipmentLoadOrder" FromRole="ShipmentLoadOrder" ToRole="ShipmentLoadOrderException" />
+    <NavigationProperty Name="ShipmentLoadSkids" Relationship="PickToLightModel.FK_ShipmentLoadSkid_ShipmentLoadOrder" FromRole="ShipmentLoadOrder" ToRole="ShipmentLoadSkid" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadOrderException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentLoadOrderID" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadOrder" Relationship="PickToLightModel.FK_ShipmentLoadOrderException_ShipmentLoadOrder" FromRole="ShipmentLoadOrderException" ToRole="ShipmentLoadOrder" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadSkid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentLoadOrderID" Type="Int32" Nullable="false" />
+    <Property Name="SkidId" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="PalletizationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadOrder" Relationship="PickToLightModel.FK_ShipmentLoadSkid_ShipmentLoadOrder" FromRole="ShipmentLoadSkid" ToRole="ShipmentLoadOrder" />
+    <NavigationProperty Name="ShipmentLoadSkidExceptions" Relationship="PickToLightModel.FK_ShipmentLoadSkidException_ShipmentLoadSkid" FromRole="ShipmentLoadSkid" ToRole="ShipmentLoadSkidException" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadSkidException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentLoadSkidID" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadSkid" Relationship="PickToLightModel.FK_ShipmentLoadSkidException_ShipmentLoadSkid" FromRole="ShipmentLoadSkidException" ToRole="ShipmentLoadSkid" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Route" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Run" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="TrailerNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DropHook" Type="Boolean" />
+    <Property Name="SealNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTeamFirstName" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTeamLastName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="LPCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="DriverTeamFirstName" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="DriverTeamLastName" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadOrders" Relationship="PickToLightModel.FK_ShipmentLoadOrder_ShipmentLoadTrailer" FromRole="ShipmentLoadTrailer" ToRole="ShipmentLoadOrder" />
+    <NavigationProperty Name="ShipmentLoadTrailerExceptions" Relationship="PickToLightModel.FK_ShipmentLoadTrailerException_ShipmentLoadTrailer" FromRole="ShipmentLoadTrailer" ToRole="ShipmentLoadTrailerException" />
+    <NavigationProperty Name="ShipmentLoadTrailerResponses" Relationship="PickToLightModel.FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer" FromRole="ShipmentLoadTrailer" ToRole="ShipmentLoadTrailerResponse" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailerException">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ShipmentLoadTrailerID" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Modified" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ShipmentLoadTrailer" Relationship="PickToLightModel.FK_ShipmentLoadTrailerException_ShipmentLoadTrailer" FromRole="ShipmentLoadTrailerException" ToRole="ShipmentLoadTrailer" />
+  </EntityType>
+  <EntityType Name="ShipmentLoadTrailerResponse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="APIResponseID" Type="Int32" Nullable="false" />
+    <Property Name="ShipmentLoadTrailerID" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="APIResponse" Relationship="PickToLightModel.FK_ShipmentLoadTrailerResponse_APIResponse" FromRole="ShipmentLoadTrailerResponse" ToRole="APIResponse" />
+    <NavigationProperty Name="ShipmentLoadTrailer" Relationship="PickToLightModel.FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer" FromRole="ShipmentLoadTrailerResponse" ToRole="ShipmentLoadTrailer" />
+  </EntityType>
+  <Association Name="FK_ShipmentLoadTrailerResponse_APIResponse">
+    <End Type="PickToLightModel.APIResponse" Role="APIResponse" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadTrailerResponse" Role="ShipmentLoadTrailerResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="APIResponse">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerResponse">
+        <PropertyRef Name="APIResponseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadOrder_ShipmentLoadTrailer">
+    <End Type="PickToLightModel.ShipmentLoadTrailer" Role="ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadOrder" Role="ShipmentLoadOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadOrder">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadOrderException_ShipmentLoadOrder">
+    <End Type="PickToLightModel.ShipmentLoadOrder" Role="ShipmentLoadOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadOrderException" Role="ShipmentLoadOrderException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadOrderException">
+        <PropertyRef Name="ShipmentLoadOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadSkid_ShipmentLoadOrder">
+    <End Type="PickToLightModel.ShipmentLoadOrder" Role="ShipmentLoadOrder" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadSkid" Role="ShipmentLoadSkid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadSkid">
+        <PropertyRef Name="ShipmentLoadOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadSkidException_ShipmentLoadSkid">
+    <End Type="PickToLightModel.ShipmentLoadSkid" Role="ShipmentLoadSkid" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadSkidException" Role="ShipmentLoadSkidException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadSkid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadSkidException">
+        <PropertyRef Name="ShipmentLoadSkidID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadTrailerException_ShipmentLoadTrailer">
+    <End Type="PickToLightModel.ShipmentLoadTrailer" Role="ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadTrailerException" Role="ShipmentLoadTrailerException" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerException">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ShipmentLoadTrailerResponse_ShipmentLoadTrailer">
+    <End Type="PickToLightModel.ShipmentLoadTrailer" Role="ShipmentLoadTrailer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PickToLightModel.ShipmentLoadTrailerResponse" Role="ShipmentLoadTrailerResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShipmentLoadTrailer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ShipmentLoadTrailerResponse">
+        <PropertyRef Name="ShipmentLoadTrailerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ScanSkidRfTag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RFid" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="RFidType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OrderNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="NAMC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DockCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="PalletizationCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="SkidId" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceIdentifier" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ScannedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

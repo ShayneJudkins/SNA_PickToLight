@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PickToLightModelStoreContainer" CdmEntityContainer="PickToLightEntities">
+    <EntitySetMapping Name="ScanOWKs">
+      <EntityTypeMapping TypeName="PickToLightModel.ScanOWK">
+        <MappingFragment StoreEntitySet="ScanOWK">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Decoded" ColumnName="Decoded" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="SupplierInformation" ColumnName="SupplierInformation" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="KanbanNumber" ColumnName="KanbanNumber" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="LineSideAddress" ColumnName="LineSideAddress" />
+          <ScalarProperty Name="StoreAddress" ColumnName="StoreAddress" />
+          <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="MainRoute" ColumnName="MainRoute" />
+          <ScalarProperty Name="SubRoute" ColumnName="SubRoute" />
+          <ScalarProperty Name="UnloadDate" ColumnName="UnloadDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="ShipTime" ColumnName="ShipTime" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="BoxNumber" ColumnName="BoxNumber" />
+          <ScalarProperty Name="BoxTotal" ColumnName="BoxTotal" />
+          <ScalarProperty Name="NAMCDestination" ColumnName="NAMCDestination" />
+          <ScalarProperty Name="InternalKanbanKey" ColumnName="InternalKanbanKey" />
+          <ScalarProperty Name="LabelLocationIndicator" ColumnName="LabelLocationIndicator" />
+          <ScalarProperty Name="NAMCData1" ColumnName="NAMCData1" />
+          <ScalarProperty Name="NAMCData2" ColumnName="NAMCData2" />
+          <ScalarProperty Name="PalletizationCode" ColumnName="PalletizationCode" />
+          <ScalarProperty Name="NAMCData3" ColumnName="NAMCData3" />
+          <ScalarProperty Name="NAMCData4" ColumnName="NAMCData4" />
+          <ScalarProperty Name="Filler" ColumnName="Filler" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="DeviceIdentifier" ColumnName="DeviceIdentifier" />
+          <ScalarProperty Name="Scanned" ColumnName="Scanned" />
+          <ScalarProperty Name="ScannedBy" ColumnName="ScannedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PickToLightModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="PickToLightModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="ThreadID" ColumnName="ThreadID" />
+          <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScanManifests">
+      <EntityTypeMapping TypeName="PickToLightModel.ScanManifest">
+        <MappingFragment StoreEntitySet="ScanManifest">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Decoded" ColumnName="Decoded" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ScannedBy" ColumnName="ScannedBy" />
+          <ScalarProperty Name="Scanned" ColumnName="Scanned" />
+          <ScalarProperty Name="DeviceIdentifier" ColumnName="DeviceIdentifier" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="OrderSequence" ColumnName="OrderSequence" />
+          <ScalarProperty Name="PalletizationCode" ColumnName="PalletizationCode" />
+          <ScalarProperty Name="SupplierShipDock" ColumnName="SupplierShipDock" />
+          <ScalarProperty Name="MainRoute" ColumnName="MainRoute" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="NAMC" ColumnName="NAMC" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NAMC_TRPT_CrossRef">
+      <EntityTypeMapping TypeName="PickToLightModel.NAMC_TRPT_CrossRef">
+        <MappingFragment StoreEntitySet="NAMC_TRPT_CrossRef">
+          <ScalarProperty Name="PullTrackerReport" ColumnName="PullTrackerReport" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="TRPT" ColumnName="TRPT" />
+          <ScalarProperty Name="NAMCDestination" ColumnName="NAMCDestination" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OWKSupplierTexts">
+      <EntityTypeMapping TypeName="PickToLightModel.OWKSupplierText">
+        <MappingFragment StoreEntitySet="OWKSupplierText">
+          <ScalarProperty Name="LastUpdatedOnTSCom" ColumnName="LastUpdatedOnTSCom" />
+          <ScalarProperty Name="SupplierTextLine2" ColumnName="SupplierTextLine2" />
+          <ScalarProperty Name="SupplierTextLine1" ColumnName="SupplierTextLine1" />
+          <ScalarProperty Name="LotSize" ColumnName="LotSize" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="KanbanNumber" ColumnName="KanbanNumber" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScanInternalKanbans">
+      <EntityTypeMapping TypeName="PickToLightModel.ScanInternalKanban">
+        <MappingFragment StoreEntitySet="ScanInternalKanban">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ScannedBy" ColumnName="ScannedBy" />
+          <ScalarProperty Name="Scanned" ColumnName="Scanned" />
+          <ScalarProperty Name="DeviceIdentifier" ColumnName="DeviceIdentifier" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="KanbanNumber" ColumnName="KanbanNumber" />
+          <ScalarProperty Name="InternalPartNumber" ColumnName="InternalPartNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScanUnknowns">
+      <EntityTypeMapping TypeName="PickToLightModel.ScanUnknown">
+        <MappingFragment StoreEntitySet="ScanUnknown">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ScannedBy" ColumnName="ScannedBy" />
+          <ScalarProperty Name="Scanned" ColumnName="Scanned" />
+          <ScalarProperty Name="DeviceIdentifier" ColumnName="DeviceIdentifier" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="ScanType" ColumnName="ScanType" />
+          <ScalarProperty Name="ExpectedScanType" ColumnName="ExpectedScanType" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToyotaShipments">
+      <EntityTypeMapping TypeName="PickToLightModel.ToyotaShipment">
+        <MappingFragment StoreEntitySet="ToyotaShipments">
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Revised" ColumnName="Revised" />
+          <ScalarProperty Name="PANSREQ" ColumnName="PANSREQ" />
+          <ScalarProperty Name="PANQTY" ColumnName="PANQTY" />
+          <ScalarProperty Name="ORDERQTY" ColumnName="ORDERQTY" />
+          <ScalarProperty Name="DOCKCODE" ColumnName="DOCKCODE" />
+          <ScalarProperty Name="ORDERNUM" ColumnName="ORDERNUM" />
+          <ScalarProperty Name="CUSTPARTNUM" ColumnName="CUSTPARTNUM" />
+          <ScalarProperty Name="SNAPARTNUM" ColumnName="SNAPARTNUM" />
+          <ScalarProperty Name="SHIPTIME" ColumnName="SHIPTIME" />
+          <ScalarProperty Name="SHIPDATE" ColumnName="SHIPDATE" />
+          <ScalarProperty Name="SUBROUTE" ColumnName="SUBROUTE" />
+          <ScalarProperty Name="NAMC" ColumnName="NAMC" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="PickToLightModel.AppSetting">
+        <MappingFragment StoreEntitySet="AppSettings">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APIResponses">
+      <EntityTypeMapping TypeName="PickToLightModel.APIResponse">
+        <MappingFragment StoreEntitySet="APIResponse">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="HTTPMoreInformation" ColumnName="HTTPMoreInformation" />
+          <ScalarProperty Name="HTTPMessage" ColumnName="HTTPMessage" />
+          <ScalarProperty Name="HTTPCode" ColumnName="HTTPCode" />
+          <ScalarProperty Name="ConfirmedTrailerPickUp" ColumnName="ConfirmedTrailerPickUp" />
+          <ScalarProperty Name="ConfirmedTrailerNumber" ColumnName="ConfirmedTrailerNumber" />
+          <ScalarProperty Name="ConfirmedTrailerRun" ColumnName="ConfirmedTrailerRun" />
+          <ScalarProperty Name="ConfirmedTrailerRoute" ColumnName="ConfirmedTrailerRoute" />
+          <ScalarProperty Name="ConfirmedTrailerSupplierCode" ColumnName="ConfirmedTrailerSupplierCode" />
+          <ScalarProperty Name="ConfirmedOrderDockCode" ColumnName="ConfirmedOrderDockCode" />
+          <ScalarProperty Name="ConfirmedOrderPlant" ColumnName="ConfirmedOrderPlant" />
+          <ScalarProperty Name="ConfirmedOrderSupplierCode" ColumnName="ConfirmedOrderSupplierCode" />
+          <ScalarProperty Name="ConfirmedOrderNumber" ColumnName="ConfirmedOrderNumber" />
+          <ScalarProperty Name="ConfirmationNumber" ColumnName="ConfirmationNumber" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APIResponseMessages">
+      <EntityTypeMapping TypeName="PickToLightModel.APIResponseMessage">
+        <MappingFragment StoreEntitySet="APIResponseMessage">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="KeyObject" ColumnName="KeyObject" />
+          <ScalarProperty Name="APIResponseID" ColumnName="APIResponseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkidBuildKanbans">
+      <EntityTypeMapping TypeName="PickToLightModel.SkidBuildKanban">
+        <MappingFragment StoreEntitySet="SkidBuildKanban">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ManifestNumber" ColumnName="ManifestNumber" />
+          <ScalarProperty Name="RFId" ColumnName="RFId" />
+          <ScalarProperty Name="LineSideAddress" ColumnName="LineSideAddress" />
+          <ScalarProperty Name="BoxNumber" ColumnName="BoxNumber" />
+          <ScalarProperty Name="QPC" ColumnName="QPC" />
+          <ScalarProperty Name="KanbanNumber" ColumnName="KanbanNumber" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="SkidBuildSkidID" ColumnName="SkidBuildSkidID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkidBuildOrders">
+      <EntityTypeMapping TypeName="PickToLightModel.SkidBuildOrder">
+        <MappingFragment StoreEntitySet="SkidBuildOrder">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ConfirmationNumber" ColumnName="ConfirmationNumber" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="Plant" ColumnName="Plant" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkidBuildOrderExceptions">
+      <EntityTypeMapping TypeName="PickToLightModel.SkidBuildOrderException">
+        <MappingFragment StoreEntitySet="SkidBuildOrderException">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SkidBuildOrderID" ColumnName="SkidBuildOrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkidBuildOrderResponses">
+      <EntityTypeMapping TypeName="PickToLightModel.SkidBuildOrderResponse">
+        <MappingFragment StoreEntitySet="SkidBuildOrderResponse">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="SkidBuildOrderID" ColumnName="SkidBuildOrderID" />
+          <ScalarProperty Name="APIResponseID" ColumnName="APIResponseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SkidBuildSkids">
+      <EntityTypeMapping TypeName="PickToLightModel.SkidBuildSkid">
+        <MappingFragment StoreEntitySet="SkidBuildSkid">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="PalletizationCode" ColumnName="PalletizationCode" />
+          <ScalarProperty Name="SkidId" ColumnName="SkidId" />
+          <ScalarProperty Name="SkidBuildOrderID" ColumnName="SkidBuildOrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadOrders">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadOrder">
+        <MappingFragment StoreEntitySet="ShipmentLoadOrder">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="PickUp" ColumnName="PickUp" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="Plant" ColumnName="Plant" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="ShipmentLoadTrailerID" ColumnName="ShipmentLoadTrailerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadOrderExceptions">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadOrderException">
+        <MappingFragment StoreEntitySet="ShipmentLoadOrderException">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ShipmentLoadOrderID" ColumnName="ShipmentLoadOrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadSkids">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadSkid">
+        <MappingFragment StoreEntitySet="ShipmentLoadSkid">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="PalletizationCode" ColumnName="PalletizationCode" />
+          <ScalarProperty Name="SkidId" ColumnName="SkidId" />
+          <ScalarProperty Name="ShipmentLoadOrderID" ColumnName="ShipmentLoadOrderID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadSkidExceptions">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadSkidException">
+        <MappingFragment StoreEntitySet="ShipmentLoadSkidException">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ShipmentLoadSkidID" ColumnName="ShipmentLoadSkidID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadTrailers">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadTrailer">
+        <MappingFragment StoreEntitySet="ShipmentLoadTrailer">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ConfirmationNumber" ColumnName="ConfirmationNumber" />
+          <ScalarProperty Name="DriverTeamLastName" ColumnName="DriverTeamLastName" />
+          <ScalarProperty Name="DriverTeamFirstName" ColumnName="DriverTeamFirstName" />
+          <ScalarProperty Name="LPCode" ColumnName="LPCode" />
+          <ScalarProperty Name="SupplierTeamLastName" ColumnName="SupplierTeamLastName" />
+          <ScalarProperty Name="SupplierTeamFirstName" ColumnName="SupplierTeamFirstName" />
+          <ScalarProperty Name="SealNumber" ColumnName="SealNumber" />
+          <ScalarProperty Name="DropHook" ColumnName="DropHook" />
+          <ScalarProperty Name="TrailerNumber" ColumnName="TrailerNumber" />
+          <ScalarProperty Name="Run" ColumnName="Run" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadTrailerExceptions">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadTrailerException">
+        <MappingFragment StoreEntitySet="ShipmentLoadTrailerException">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ShipmentLoadTrailerID" ColumnName="ShipmentLoadTrailerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipmentLoadTrailerResponses">
+      <EntityTypeMapping TypeName="PickToLightModel.ShipmentLoadTrailerResponse">
+        <MappingFragment StoreEntitySet="ShipmentLoadTrailerResponse">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ShipmentLoadTrailerID" ColumnName="ShipmentLoadTrailerID" />
+          <ScalarProperty Name="APIResponseID" ColumnName="APIResponseID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScanSkidRfTags">
+      <EntityTypeMapping TypeName="PickToLightModel.ScanSkidRfTag">
+        <MappingFragment StoreEntitySet="ScanSkidRfTag">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ScannedBy" ColumnName="ScannedBy" />
+          <ScalarProperty Name="DeviceIdentifier" ColumnName="DeviceIdentifier" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="SkidId" ColumnName="SkidId" />
+          <ScalarProperty Name="PalletizationCode" ColumnName="PalletizationCode" />
+          <ScalarProperty Name="DockCode" ColumnName="DockCode" />
+          <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+          <ScalarProperty Name="NAMC" ColumnName="NAMC" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="RFidType" ColumnName="RFidType" />
+          <ScalarProperty Name="RFid" ColumnName="RFid" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
